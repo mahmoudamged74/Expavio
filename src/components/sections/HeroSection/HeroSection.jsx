@@ -7,7 +7,7 @@ export function HeroSection() {
   const { t, i18n } = useTranslation('home')
   const { t: tc } = useTranslation('common')
   const isAr = i18n.language?.startsWith('ar')
-  const bgSrc = isAr ? '/assets/heroar.png' : '/assets/hero.png'
+  const bgSrc = isAr ? '/assets/heroar.webp' : '/assets/hero.webp'
 
   return (
     <section

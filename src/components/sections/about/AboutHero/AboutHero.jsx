@@ -4,15 +4,17 @@ import { Button } from '@/components/ui/Button/Button'
 import styles from './AboutHero.module.css'
 
 export function AboutHero() {
-  const { t } = useTranslation('about')
+  const { t, i18n } = useTranslation('about')
   const stats = t('hero.stats', { returnObjects: true })
   const statList = Array.isArray(stats) ? stats : []
+  const isAr = i18n.language?.startsWith('ar')
+  const bgSrc = isAr ? '/assets/about-hero-ar.webp' : '/assets/about-hero.webp'
 
   return (
     <section
       className={styles.hero}
       aria-labelledby="about-hero-title"
-      style={{ backgroundImage: 'url(/assets/about-hero.png)' }}
+      style={{ backgroundImage: `url(${bgSrc})` }}
     >
       <div className={styles.scrim} aria-hidden="true" />
       <div className={styles.pattern} aria-hidden="true" />

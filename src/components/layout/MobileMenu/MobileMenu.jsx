@@ -68,7 +68,14 @@ export function MobileMenu({ isOpen, onClose }) {
       <div className={styles.panel}>
         <div className={styles.header}>
           <div className={styles.brand}>
-            <img src="/assets/expavio.png" alt="" className={styles.logo} />
+            <img
+              src="/assets/expavio-logo.webp"
+              alt=""
+              className={styles.logo}
+              width={140}
+              height={42}
+              decoding="async"
+            />
             <div>
               <p id={titleId} className={styles.brandName}>
                 {t('brand')}

@@ -9,7 +9,7 @@ export function AboutCTA() {
   return (
     <section className={`section ${styles.section}`} aria-labelledby="about-cta-title">
       <Container>
-        <div className={styles.card} style={{ backgroundImage: 'url(/assets/cta-bg.png)' }}>
+        <div className={styles.card} style={{ backgroundImage: 'url(/assets/cta-bg.webp)' }}>
           <div className={styles.scrim} aria-hidden="true" />
           <div className={styles.content}>
             <h2 id="about-cta-title" className={`font-display ${styles.title}`}>

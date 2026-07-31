@@ -11,7 +11,7 @@ export function InvestorJourney() {
     <section
       className={styles.section}
       aria-labelledby="investor-journey-title"
-      style={{ backgroundImage: 'url(/assets/investor-journey.png)' }}
+      style={{ backgroundImage: 'url(/assets/investor-journey.webp)' }}
     >
       <div className={styles.scrim} aria-hidden="true" />
 

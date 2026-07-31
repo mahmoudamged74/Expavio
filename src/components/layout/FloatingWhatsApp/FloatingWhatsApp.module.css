@@ -1,0 +1,121 @@
+.fab {
+  position: fixed;
+  z-index: 900;
+  inset-block-end: 1.35rem;
+  inset-inline-end: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 3.5rem;
+  padding: 0 1.05rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(145deg, #34d472, #1faa54);
+  box-shadow:
+    0 14px 32px rgba(31, 170, 84, 0.38),
+    0 2px 6px rgba(10, 24, 56, 0.2);
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    gap 0.3s var(--ease-out);
+}
+
+.fab:hover,
+.fab:focus-visible {
+  transform: translateY(-3px);
+  color: #fff;
+  gap: 0.6rem;
+  box-shadow:
+    0 18px 40px rgba(31, 170, 84, 0.45),
+    0 3px 8px rgba(10, 24, 56, 0.25);
+}
+
+.fab:focus-visible {
+  outline: 2px solid var(--expavio-gold);
+  outline-offset: 3px;
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  font-size: 1.7rem;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.92rem;
+  font-weight: 700;
+  opacity: 0;
+  transition:
+    max-width 0.35s var(--ease-out),
+    opacity 0.25s var(--ease-out);
+}
+
+.fab:hover .label,
+.fab:focus-visible .label {
+  max-width: 12rem;
+  opacity: 1;
+}
+
+.pulse {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: rgba(52, 212, 114, 0.55);
+  animation: pulse 2.4s var(--ease-out) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .fab {
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+    height: 3.15rem;
+    padding: 0 0.9rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .fab:hover .label,
+  .fab:focus-visible .label {
+    max-width: 0;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+
+  .fab:hover,
+  .fab:focus-visible {
+    transform: none;
+  }
+}

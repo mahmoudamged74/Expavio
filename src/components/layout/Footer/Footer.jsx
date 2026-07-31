@@ -58,7 +58,7 @@ export function Footer() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
           <Link to="/" className={styles.logo}>
-            <img src="/assets/expavio.png" alt={t('brand')} />
+          <img src="/assets/expavio-logo.webp" alt={t('brand')} width={160} height={48} decoding="async" />
           </Link>
           <p className={styles.blurb}>{t('footer.blurb')}</p>
         </div>

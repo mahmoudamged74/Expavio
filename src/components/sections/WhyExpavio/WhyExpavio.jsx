@@ -23,11 +23,11 @@ export function WhyExpavio() {
 
               <div className={styles.logoCard}>
                 <img
-                  src="/assets/expavio.png"
+                  src="/assets/expavio-logo.webp"
                   alt="Expavio"
                   className={styles.logo}
-                  width={480}
-                  height={320}
+                  width={240}
+                  height={80}
                   loading="lazy"
                   decoding="async"
                 />

@@ -53,12 +53,13 @@ export function InvestorHero() {
             <figure className={styles.media}>
               <span className={styles.mediaGlow} aria-hidden="true" />
               <img
-                src="/assets/investor-hero.png"
+                src="/assets/investor-hero.webp"
                 alt={t('hero.imageAlt')}
                 className={styles.image}
-                width={1024}
-                height={768}
+                width={1400}
+                height={1050}
                 decoding="async"
+                fetchPriority="high"
               />
             </figure>
           </Col>

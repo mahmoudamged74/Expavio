@@ -62,7 +62,15 @@ export function Header() {
     >
       <div className={clsx('container', styles.inner)}>
         <Link to="/" className={styles.logo} aria-label={t('brand')}>
-          <img src="/assets/expavio.png" alt="" className={styles.logoImg} />
+          <img
+            src="/assets/expavio-logo.webp"
+            alt=""
+            className={styles.logoImg}
+            width={160}
+            height={48}
+            decoding="async"
+            fetchPriority="high"
+          />
         </Link>
 
         <nav className={styles.nav} aria-label={t('footer.quickLinks')}>

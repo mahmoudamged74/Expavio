@@ -46,11 +46,11 @@ export function ForeignInvestorSection() {
           <Col xs={12} lg={6} className={styles.mediaCol}>
             <figure className={styles.media}>
               <img
-                src="/assets/foreign-investor.png"
+                src="/assets/foreign-investor.webp"
                 alt={t('foreignInvestor.imageAlt')}
                 className={styles.image}
-                width={1408}
-                height={1086}
+                width={1400}
+                height={1080}
                 loading="lazy"
                 decoding="async"
               />

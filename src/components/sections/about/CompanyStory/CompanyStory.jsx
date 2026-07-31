@@ -20,11 +20,11 @@ export function CompanyStory() {
 
               <figure className={styles.media}>
                 <img
-                  src="/assets/about-story.png"
+                  src="/assets/about-story.webp"
                   alt={t('story.imageAlt')}
                   className={styles.image}
-                  width={1024}
-                  height={768}
+                  width={1200}
+                  height={900}
                   loading="lazy"
                   decoding="async"
                 />

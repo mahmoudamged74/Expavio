@@ -11,7 +11,7 @@ export function WorkMethodology() {
     <section
       className={styles.section}
       aria-labelledby="about-method-title"
-      style={{ backgroundImage: 'url(/assets/about-method.png)' }}
+      style={{ backgroundImage: 'url(/assets/about-method.webp)' }}
     >
       <div className={styles.scrim} aria-hidden="true" />
 

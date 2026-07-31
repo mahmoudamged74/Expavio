@@ -11,7 +11,7 @@ export function CTASection() {
       <Container>
         <div
           className={styles.card}
-          style={{ backgroundImage: 'url(/assets/cta-bg.png)' }}
+          style={{ backgroundImage: 'url(/assets/cta-bg.webp)' }}
         >
           <div className={styles.scrim} aria-hidden="true" />
           <div className={styles.content}>

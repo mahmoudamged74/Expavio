@@ -25,14 +25,13 @@ export function AppRouter() {
           <Route path="consultation" element={<ConsultationPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
 
         <Route element={<LegalLayout />}>
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="terms" element={<TermsPage />} />
         </Route>
-
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
