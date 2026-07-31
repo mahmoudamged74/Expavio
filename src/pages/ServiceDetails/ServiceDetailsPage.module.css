@@ -1,0 +1,10 @@
+.content {
+  background:
+    radial-gradient(ellipse 35% 30% at 100% 0%, color-mix(in srgb, var(--expavio-blue) 6%, transparent), transparent 55%),
+    radial-gradient(ellipse 30% 25% at 0% 40%, color-mix(in srgb, var(--expavio-teal) 5%, transparent), transparent 50%),
+    var(--bg);
+}
+
+.main {
+  min-width: 0;
+}

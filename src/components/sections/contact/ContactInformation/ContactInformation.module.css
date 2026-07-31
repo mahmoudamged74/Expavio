@@ -1,0 +1,101 @@
+.section {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.heading {
+  padding-bottom: 1.15rem;
+}
+
+.blocks {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.2rem;
+  border-radius: 1.05rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  color: var(--expavio-blue);
+  background: color-mix(in srgb, var(--expavio-blue) 12%, transparent);
+}
+
+.blockTitle {
+  margin: 0 0 0.55rem;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.itemLabel {
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--text-muted);
+}
+
+.list a {
+  color: var(--expavio-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.list a:hover {
+  color: var(--expavio-gold);
+}
+
+.text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.note {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.whatsapp {
+  margin-top: 1.15rem;
+  justify-self: start;
+  gap: 0.55rem;
+}
+
+[data-theme='dark'] .icon {
+  color: #9bb4f0;
+  background: color-mix(in srgb, var(--expavio-blue) 24%, transparent);
+}
+
+[data-theme='dark'] .list a {
+  color: #9bb4f0;
+}

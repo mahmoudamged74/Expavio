@@ -1,0 +1,22 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.content {
+  max-width: 48rem;
+}
+
+.content h1 {
+  margin-bottom: 1rem;
+}
+
+.content p {
+  margin-bottom: 1rem;
+}

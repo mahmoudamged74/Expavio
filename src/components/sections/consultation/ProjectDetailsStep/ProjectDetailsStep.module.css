@@ -1,0 +1,38 @@
+.step {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.head {
+  max-width: 36rem;
+}
+
+.title {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.fields {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.row {
+  display: grid;
+  gap: 1.1rem;
+}
+
+@media (min-width: 576px) {
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

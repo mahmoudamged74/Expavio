@@ -1,0 +1,128 @@
+.section {
+  scroll-margin-top: 5rem;
+  background:
+    radial-gradient(ellipse 45% 40% at 100% 0%, color-mix(in srgb, var(--expavio-blue) 7%, transparent), transparent 55%),
+    var(--bg);
+}
+
+.form {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 52rem;
+  margin: 2.5rem auto 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 1.35rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 55px rgba(10, 24, 56, 0.12);
+}
+
+.row {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hint {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    border-color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+
+.option:hover {
+  border-color: color-mix(in srgb, var(--expavio-blue) 35%, var(--border));
+}
+
+.optionChecked {
+  border-color: var(--expavio-blue);
+  background: color-mix(in srgb, var(--expavio-blue) 8%, var(--bg));
+  font-weight: 650;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--expavio-blue);
+  cursor: pointer;
+}
+
+.submit {
+  justify-self: start;
+}
+
+.success {
+  max-width: 40rem;
+  margin: 2.5rem auto 0;
+  padding: 1.6rem 1.75rem;
+  border-radius: 1.15rem;
+  background: color-mix(in srgb, var(--expavio-teal) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--expavio-teal) 45%, transparent);
+  color: var(--text);
+  font-weight: 650;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .submit {
+    justify-self: stretch;
+    width: 100%;
+  }
+}

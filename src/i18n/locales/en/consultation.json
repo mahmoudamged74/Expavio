@@ -1,0 +1,126 @@
+{
+  "hero": {
+    "eyebrow": "Expavio consultation",
+    "title": "Book your consultation in clear steps",
+    "description": "Tell us who you are, the service you need, and your project — a specialist advisor will follow up with a clear initial plan."
+  },
+  "progress": {
+    "step": "Step {{current}} of {{total}}",
+    "labels": [
+      "Client type",
+      "Service",
+      "Project",
+      "Contact",
+      "Review"
+    ]
+  },
+  "nav": {
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit request",
+    "edit": "Edit"
+  },
+  "customerType": {
+    "title": "What type of client are you?",
+    "subtitle": "Pick the closest fit so we can route your request to the right advisor.",
+    "options": [
+      {
+        "id": "individual-investor",
+        "title": "Individual investor",
+        "description": "Individuals planning to invest or form an entity in the Kingdom."
+      },
+      {
+        "id": "saudi-company",
+        "title": "Saudi company",
+        "description": "Companies already in Saudi Arabia needing growth, compliance, or operations support."
+      },
+      {
+        "id": "foreign-company",
+        "title": "Foreign company",
+        "description": "Overseas companies seeking to enter the Saudi market."
+      },
+      {
+        "id": "government",
+        "title": "Government entity",
+        "description": "Public bodies needing advisory or operational support."
+      },
+      {
+        "id": "startup",
+        "title": "Startup",
+        "description": "Early-stage ventures needing formation, development, and growth support."
+      }
+    ]
+  },
+  "serviceSelection": {
+    "title": "Which service do you need?",
+    "subtitle": "Choose the closest service. You can add more detail in the next step.",
+    "unsure": "Not sure — I need guidance"
+  },
+  "projectDetails": {
+    "title": "Project details",
+    "subtitle": "Help us understand your activity and current stage for a sharper consultation.",
+    "activity": "Activity",
+    "activityPlaceholder": "e.g. tech, trading, hospitality, manufacturing...",
+    "stage": "Current stage",
+    "stagePlaceholder": "Select a stage",
+    "stages": [
+      "Early idea",
+      "Planning & formation",
+      "About to launch",
+      "Already operating",
+      "Expansion or restructuring"
+    ],
+    "city": "City",
+    "cityPlaceholder": "e.g. Riyadh",
+    "need": "Need description",
+    "needPlaceholder": "Briefly describe what you need from Expavio..."
+  },
+  "contactDetails": {
+    "title": "Contact details",
+    "subtitle": "How can we reach you, and when is a good time to call?",
+    "name": "Name",
+    "phone": "Phone number",
+    "email": "Email",
+    "company": "Company",
+    "preferredTime": "Preferred contact time",
+    "preferredTimePlaceholder": "Select a time",
+    "timeOptions": [
+      "Morning (9 AM – 12 PM)",
+      "Midday (12 PM – 3 PM)",
+      "Afternoon (3 PM – 6 PM)",
+      "Any time during business hours"
+    ]
+  },
+  "summary": {
+    "title": "Review your request",
+    "subtitle": "Confirm the details before submitting. You can go back to edit any step.",
+    "customerType": "Client type",
+    "service": "Requested service",
+    "activity": "Activity",
+    "stage": "Current stage",
+    "city": "City",
+    "need": "Need description",
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "company": "Company",
+    "preferredTime": "Preferred contact time",
+    "empty": "—"
+  },
+  "success": {
+    "title": "Your request was received",
+    "description": "Thank you for contacting Expavio. An advisor will typically get back to you within one business day.",
+    "primaryCta": "Back to home",
+    "secondaryCta": "Browse services",
+    "refLabel": "Request ID"
+  },
+  "validation": {
+    "customerType": "Select a client type to continue.",
+    "service": "Select a service to continue.",
+    "activity": "Enter your activity.",
+    "need": "Add a short description of your need.",
+    "name": "Name is required.",
+    "phone": "Phone number is required.",
+    "email": "Enter a valid email address."
+  }
+}

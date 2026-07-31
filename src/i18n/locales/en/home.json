@@ -1,0 +1,144 @@
+{
+  "hero": {
+    "title": "From investment formation to operations and growth",
+    "subtitle": "Integrated solutions for investors and companies in the Kingdom — covering formation, licensing, consulting, development, digital transformation, and operational support.",
+    "primaryCta": "Start your consultation",
+    "secondaryCta": "Explore our services",
+    "pillars": {
+      "invest": "Investment",
+      "company": "Companies",
+      "tech": "Technology",
+      "growth": "Growth"
+    }
+  },
+  "trustBar": {
+    "items": [
+      "End-to-end solutions from one partner",
+      "For local and foreign investors",
+      "Support across every project stage",
+      "Multi-disciplinary expertise"
+    ]
+  },
+  "services": {
+    "eyebrow": "Our ecosystem",
+    "title": "An integrated services ecosystem",
+    "subtitle": "Four core pillars covering your full journey — choose a pillar to explore its services.",
+    "openServices": "Explore services",
+    "closeServices": "Hide services",
+    "viewService": "Service details"
+  },
+  "fullServices": {
+    "eyebrow": "All services",
+    "title": "Complete services",
+    "subtitle": "Browse every Expavio service in one place and choose the path that fits your stage."
+  },
+  "journey": {
+    "eyebrow": "Client journey",
+    "title": "A clear path from idea to growth",
+    "subtitle": "An ordered journey that guides you step by step — from understanding the goal to launch and growth.",
+    "steps": [
+      {
+        "title": "Understand the project and goal",
+        "description": "We listen to your vision and define the activity and desired outcome clearly."
+      },
+      {
+        "title": "Assess the opportunity and requirements",
+        "description": "We analyze the opportunity and map regulatory and operational requirements before execution."
+      },
+      {
+        "title": "Formation and licensing",
+        "description": "We complete formation procedures and licensing with the relevant authorities."
+      },
+      {
+        "title": "Prepare for operations",
+        "description": "We set up the administrative and operational foundation for a smooth start."
+      },
+      {
+        "title": "Launch the project",
+        "description": "We support go-live and ensure core operations are ready."
+      },
+      {
+        "title": "Develop and grow",
+        "description": "We stay with you after launch to improve performance and unlock sustainable growth."
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why us",
+    "title": "Why Expavio?",
+    "subtitle": "Because building an investment needs a partner who understands the full path — from idea to operations.",
+    "points": [
+      "One partner for multiple services",
+      "Solutions tailored to each project's nature",
+      "Integration across investment, legal, financial, and technical sides",
+      "Follow-through from project start to operations",
+      "Clear understanding of local and foreign investor needs"
+    ]
+  },
+  "solutionsByStage": {
+    "eyebrow": "Your path",
+    "title": "Solutions for every stage",
+    "subtitle": "Choose your project profile and we’ll show the services that fit that stage.",
+    "matched": "Matching services",
+    "viewService": "Service details",
+    "profiles": {
+      "new-investor": "An investor starting a new project",
+      "foreign-company": "A foreign company entering the Saudi market",
+      "restructuring": "A company that needs restructuring",
+      "digital": "An organization seeking digital transformation",
+      "operations": "A company that needs operations or outsourcing",
+      "brand-growth": "A brand ready to expand and market"
+    }
+  },
+  "foreignInvestor": {
+    "eyebrow": "Foreign Investor",
+    "title": "Start your investment in the Kingdom with confidence",
+    "description": "We accompany foreign investors through every stage of establishing their business — from licensing and company formation to residencies, bank accounts, and operational readiness.",
+    "items": [
+      "100% foreign ownership",
+      "Investment license issuance",
+      "Company and branch formation",
+      "Residencies and visas",
+      "Bank account opening",
+      "Government entity registration"
+    ],
+    "primaryCta": "Start your investment journey",
+    "secondaryCta": "Explore foreign investor services",
+    "imageAlt": "Business meeting between local partners and foreign investors in Saudi Arabia"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "How long does company formation take?",
+        "a": "Timelines vary by activity and regulatory requirements. From the first consultation, we share a clear expected schedule and keep you updated at every stage."
+      },
+      {
+        "q": "Can I form a company with 100% foreign ownership?",
+        "a": "Yes. We help foreign investors establish 100% foreign-owned companies in permitted activities, including licensing and registration with the relevant authorities."
+      },
+      {
+        "q": "What documents are required?",
+        "a": "Required documents depend on the entity type and activity. After understanding your project, we provide a clear, up-to-date checklist so your file is prepared quickly and accurately."
+      },
+      {
+        "q": "Do you offer post-formation services?",
+        "a": "Yes. We support you after formation with operations readiness, banking, residencies when needed, and ongoing administrative and operational support."
+      },
+      {
+        "q": "Can I request more than one service?",
+        "a": "Absolutely. Multiple services can be combined into one path — such as formation, legal, financial, and digital transformation — based on your project stage."
+      },
+      {
+        "q": "How do I start a consultation?",
+        "a": "Start through the consultation page or the “Book consultation” button. Our team will contact you to understand your needs and map the right path to begin."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Have an investment opportunity? Let’s turn it into a growth-ready project",
+    "primaryCta": "Book a consultation",
+    "secondaryCta": "Contact us"
+  }
+}

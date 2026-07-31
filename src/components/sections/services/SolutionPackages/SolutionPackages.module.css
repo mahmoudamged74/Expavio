@@ -1,0 +1,184 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 42% 40% at 100% 0%, color-mix(in srgb, var(--expavio-teal) 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 38% 35% at 0% 100%, color-mix(in srgb, var(--expavio-gold) 8%, transparent), transparent 55%),
+    var(--bg-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  --accent: var(--expavio-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: rise 0.65s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 80ms);
+  transition:
+    transform 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  box-shadow: 0 22px 48px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.blue {
+  --accent: var(--expavio-blue);
+}
+
+.teal {
+  --accent: var(--expavio-teal);
+}
+
+.gold {
+  --accent: var(--expavio-gold);
+}
+
+.cardHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  font-size: 1.3rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg));
+}
+
+.stepIndex {
+  display: grid;
+  place-items: center;
+  min-width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--accent);
+}
+
+.gold .stepIndex {
+  color: var(--expavio-ink);
+}
+
+.stepLabel {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 85%, white), var(--accent));
+  text-decoration: none;
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.gold .cta {
+  color: var(--expavio-ink);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}

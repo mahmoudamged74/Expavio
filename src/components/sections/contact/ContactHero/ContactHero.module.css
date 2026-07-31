@@ -1,0 +1,80 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(2.75rem, 6vw, 4.25rem);
+  background:
+    radial-gradient(ellipse 55% 70% at 100% 0%, color-mix(in srgb, var(--expavio-blue) 28%, transparent), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 0% 100%, color-mix(in srgb, var(--expavio-teal) 14%, transparent), transparent 55%),
+    var(--expavio-ink);
+  color: var(--text-on-dark);
+}
+
+html[dir='ltr'] .hero {
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 0%, color-mix(in srgb, var(--expavio-blue) 28%, transparent), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 100% 100%, color-mix(in srgb, var(--expavio-teal) 14%, transparent), transparent 55%),
+    var(--expavio-ink);
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.07;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 120 160'%3E%3Cpath d='M60 8 L104 36 L104 68 L60 96 L16 68 L16 36 Z' fill='none' stroke='%23c9a24e' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: 110px 145px;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.copy {
+  max-width: 40rem;
+  animation: rise 0.75s var(--ease-out) both;
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--expavio-gold);
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  line-height: 1.25;
+  color: #f8fafc;
+}
+
+.description {
+  margin: 0;
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  line-height: 1.9;
+  color: rgba(234, 238, 247, 0.84);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy {
+    animation: none;
+  }
+}

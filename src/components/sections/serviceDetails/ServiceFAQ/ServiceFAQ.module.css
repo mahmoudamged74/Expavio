@@ -1,0 +1,11 @@
+.section {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.heading {
+  padding-bottom: 1.15rem;
+}
+
+.wrap {
+  max-width: 44rem;
+}

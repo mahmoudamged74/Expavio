@@ -1,0 +1,24 @@
+.section {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.heading {
+  padding-bottom: 1.15rem;
+}
+
+.frame {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 45px rgba(10, 24, 56, 0.1);
+  background: var(--bg-elevated);
+  min-height: 18rem;
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: clamp(18rem, 42vw, 24rem);
+  border: 0;
+}

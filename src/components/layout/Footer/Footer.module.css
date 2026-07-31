@@ -1,0 +1,158 @@
+.footer {
+  margin-top: auto;
+  background: var(--expavio-ink);
+  color: rgba(234, 238, 247, 0.82);
+}
+
+/* .inner {
+  padding-block: clamp(3rem, 7vw, 4.75rem) clamp(1.75rem, 4vw, 2.5rem);
+} */
+ .inner {
+  padding: 0 0 1rem 0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.logo img {
+  display: block;
+  height: clamp(4.5rem, 11vw, 6.75rem);
+  width: auto;
+  max-width: min(100%, 22rem);
+  object-fit: contain;
+}
+
+.blurb {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(234, 238, 247, 0.68);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem 1.5rem;
+  margin-bottom: clamp(2.25rem, 5vw, 3rem);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.colTitle {
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.65rem;
+  width: 100%;
+  max-width: 14rem;
+  font-family: var(--font-display-ar);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f4f7fb;
+  border-bottom: 1px solid rgba(234, 238, 247, 0.18);
+  text-align: center;
+}
+
+html[lang='en'] .colTitle {
+  font-family: var(--font-body-en);
+  letter-spacing: 0.02em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list a,
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  color: rgba(234, 238, 247, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color var(--duration) var(--ease-out);
+}
+
+.list a:hover,
+.contactLink:hover {
+  color: var(--expavio-gold);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(234, 238, 247, 0.22);
+  color: rgba(234, 238, 247, 0.85);
+  font-size: 0.78rem;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 0.35rem;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(234, 238, 247, 0.16);
+}
+
+.diamond {
+  width: 0.55rem;
+  height: 0.55rem;
+  rotate: 45deg;
+  background: var(--expavio-gold);
+  flex-shrink: 0;
+}
+
+.copy {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(234, 238, 247, 0.7);
+}
+
+.note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(234, 238, 247, 0.5);
+}
+
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}

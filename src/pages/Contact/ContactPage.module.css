@@ -1,0 +1,10 @@
+.content {
+  background:
+    radial-gradient(ellipse 35% 30% at 0% 0%, color-mix(in srgb, var(--expavio-blue) 6%, transparent), transparent 55%),
+    var(--bg);
+}
+
+.location {
+  background: var(--bg);
+  padding-top: 0;
+}

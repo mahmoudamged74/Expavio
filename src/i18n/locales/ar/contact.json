@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "eyebrow": "تواصل معنا",
+    "title": "نحن هنا لمساعدتك",
+    "description": "تواصل مع فريق Expavio عبر الهاتف أو البريد أو النموذج أو واتساب — ونعود إليك خلال يوم عمل في أغلب الطلبات."
+  },
+  "info": {
+    "eyebrow": "بيانات التواصل",
+    "title": "طرق التواصل المباشرة",
+    "subtitle": "اختر القناة الأنسب لك، أو أرسل رسالة من النموذج وسنتابع معك.",
+    "email": "hello@expavio.com",
+    "phone": "+966 00 000 0000",
+    "address": "الرياض، المملكة العربية السعودية",
+    "phones": {
+      "label": "أرقام الهاتف",
+      "items": [
+        { "label": "الاتصال الرئيسي", "value": "+966 00 000 0000" },
+        { "label": "دعم العملاء", "value": "+966 00 000 0001" }
+      ]
+    },
+    "emails": {
+      "label": "البريد الإلكتروني",
+      "items": [
+        { "label": "العام", "value": "hello@expavio.com" },
+        { "label": "الاستشارات", "value": "consult@expavio.com" }
+      ]
+    },
+    "addressBlock": {
+      "label": "العنوان",
+      "value": "الرياض، المملكة العربية السعودية"
+    },
+    "hours": {
+      "label": "ساعات العمل",
+      "value": "الأحد – الخميس، 9:00 ص – 6:00 م",
+      "note": "الجمعة والسبت: مغلق"
+    },
+    "whatsapp": {
+      "label": "تواصل عبر واتساب",
+      "href": "https://wa.me/966000000000"
+    }
+  },
+  "form": {
+    "eyebrow": "راسلنا",
+    "title": "نموذج الرسالة",
+    "subtitle": "املأ النموذج وسنعود إليك في أقرب وقت.",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الجوال",
+    "subject": "الموضوع",
+    "message": "رسالتك",
+    "submit": "إرسال الرسالة",
+    "success": "تم إرسال رسالتك بنجاح. سنتواصل معك قريبًا."
+  },
+  "office": {
+    "eyebrow": "المكتب",
+    "title": "موقع المكتب",
+    "subtitle": "نخدم عملاءنا من الرياض مع إمكانية الاجتماع حضوريًا أو عن بُعد.",
+    "name": "مكتب Expavio — الرياض",
+    "address": "الرياض، المملكة العربية السعودية",
+    "directions": "احصل على الاتجاهات",
+    "directionsHref": "https://www.google.com/maps/search/?api=1&query=Riyadh+Saudi+Arabia"
+  },
+  "map": {
+    "eyebrow": "الخريطة",
+    "title": "خريطة الموقع",
+    "subtitle": "موقع تقريبي للمكتب في الرياض.",
+    "iframeTitle": "خريطة موقع مكتب Expavio في الرياض",
+    "embedSrc": "https://www.openstreetmap.org/export/embed.html?bbox=46.65%2C24.68%2C46.75%2C24.75&layer=mapnik&marker=24.7136%2C46.6753"
+  },
+  "social": {
+    "eyebrow": "تابعنا",
+    "title": "روابط التواصل الاجتماعي",
+    "subtitle": "تابع أخبار Expavio وتحديثات الخدمات عبر القنوات الرسمية.",
+    "whatsappCta": "تواصل عبر واتساب",
+    "links": [
+      { "id": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+      { "id": "x", "label": "X", "href": "https://x.com/" },
+      { "id": "instagram", "label": "Instagram", "href": "https://www.instagram.com/" },
+      { "id": "youtube", "label": "YouTube", "href": "https://www.youtube.com/" }
+    ]
+  }
+}

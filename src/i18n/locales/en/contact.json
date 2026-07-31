@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "eyebrow": "Contact us",
+    "title": "We're here to help",
+    "description": "Reach the Expavio team by phone, email, form, or WhatsApp — we typically reply within one business day."
+  },
+  "info": {
+    "eyebrow": "Contact details",
+    "title": "Direct ways to reach us",
+    "subtitle": "Pick the channel that works best, or send a message through the form and we'll follow up.",
+    "email": "hello@expavio.com",
+    "phone": "+966 00 000 0000",
+    "address": "Riyadh, Kingdom of Saudi Arabia",
+    "phones": {
+      "label": "Phone numbers",
+      "items": [
+        { "label": "Main line", "value": "+966 00 000 0000" },
+        { "label": "Client support", "value": "+966 00 000 0001" }
+      ]
+    },
+    "emails": {
+      "label": "Email",
+      "items": [
+        { "label": "General", "value": "hello@expavio.com" },
+        { "label": "Consultations", "value": "consult@expavio.com" }
+      ]
+    },
+    "addressBlock": {
+      "label": "Address",
+      "value": "Riyadh, Kingdom of Saudi Arabia"
+    },
+    "hours": {
+      "label": "Working hours",
+      "value": "Sunday – Thursday, 9:00 AM – 6:00 PM",
+      "note": "Friday & Saturday: Closed"
+    },
+    "whatsapp": {
+      "label": "Chat on WhatsApp",
+      "href": "https://wa.me/966000000000"
+    }
+  },
+  "form": {
+    "eyebrow": "Write to us",
+    "title": "Message form",
+    "subtitle": "Fill in the form and we'll get back to you soon.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Your message",
+    "submit": "Send message",
+    "success": "Your message was sent successfully. We'll contact you soon."
+  },
+  "office": {
+    "eyebrow": "Office",
+    "title": "Office location",
+    "subtitle": "We serve clients from Riyadh, with in-person or remote meetings available.",
+    "name": "Expavio Office — Riyadh",
+    "address": "Riyadh, Kingdom of Saudi Arabia",
+    "directions": "Get directions",
+    "directionsHref": "https://www.google.com/maps/search/?api=1&query=Riyadh+Saudi+Arabia"
+  },
+  "map": {
+    "eyebrow": "Map",
+    "title": "Location map",
+    "subtitle": "Approximate office location in Riyadh.",
+    "iframeTitle": "Map of Expavio office location in Riyadh",
+    "embedSrc": "https://www.openstreetmap.org/export/embed.html?bbox=46.65%2C24.68%2C46.75%2C24.75&layer=mapnik&marker=24.7136%2C46.6753"
+  },
+  "social": {
+    "eyebrow": "Follow us",
+    "title": "Social links",
+    "subtitle": "Follow Expavio news and service updates on our official channels.",
+    "whatsappCta": "Chat on WhatsApp",
+    "links": [
+      { "id": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+      { "id": "x", "label": "X", "href": "https://x.com/" },
+      { "id": "instagram", "label": "Instagram", "href": "https://www.instagram.com/" },
+      { "id": "youtube", "label": "YouTube", "href": "https://www.youtube.com/" }
+    ]
+  }
+}

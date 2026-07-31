@@ -1,0 +1,81 @@
+.section {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.heading {
+  padding-bottom: 1.15rem;
+}
+
+.body {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+.blocks {
+  display: grid;
+  gap: 1rem;
+}
+
+.block {
+  padding: 1.35rem 1.4rem;
+  border-radius: 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-inline-start: 3px solid var(--expavio-blue);
+}
+
+.blockTitle {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.blockText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+
+.outcome {
+  padding: 1.5rem 1.55rem;
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--expavio-teal) 12%, var(--bg-elevated)),
+      var(--bg-elevated)
+    );
+  border: 1px solid color-mix(in srgb, var(--expavio-teal) 28%, var(--border));
+}
+
+.outcomeLabel {
+  margin: 0 0 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--expavio-teal);
+}
+
+.outcomeText {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .blocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

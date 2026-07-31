@@ -1,0 +1,320 @@
+.section {
+  position: relative;
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, color-mix(in srgb, var(--gold) 10%, transparent), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 0% 100%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 55%),
+    var(--bg);
+  overflow: hidden;
+}
+
+.pillars {
+  margin-top: 0.5rem;
+}
+
+.pillar {
+  --i: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 17.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.45rem 1.35rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--bg-elevated);
+  text-align: start;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(44, 86, 198, 0.04);
+  transition:
+    transform 0.28s var(--ease-out),
+    border-color 0.28s var(--ease-out),
+    box-shadow 0.28s var(--ease-out),
+    background-color 0.28s var(--ease-out);
+  animation: pillarIn 0.55s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+.pillar:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+  box-shadow: 0 18px 40px rgba(44, 86, 198, 0.1);
+}
+
+.pillarActive {
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--border));
+  background:
+    linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--gold) 12%, var(--bg-elevated)) 0%,
+      var(--bg-elevated) 48%
+    );
+  box-shadow:
+    0 18px 44px rgba(44, 86, 198, 0.12),
+    inset 0 1px 0 color-mix(in srgb, var(--gold) 35%, transparent);
+}
+
+[data-theme='dark'] .pillar {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .pillar:hover,
+[data-theme='dark'] .pillarActive {
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+}
+
+.pillarIndex {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  color: var(--gold);
+  transition:
+    background-color 0.25s var(--ease-out),
+    color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
+}
+
+.pillar:hover .iconWrap,
+.pillarActive .iconWrap {
+  background: var(--gold);
+  color: var(--expavio-ink);
+  transform: scale(1.04);
+}
+
+.icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.pillarTitle {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.pillarDesc {
+  margin: 0;
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.pillarAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.panel {
+  margin-top: 1.35rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 1.35rem;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 16px 48px rgba(44, 86, 198, 0.08);
+  overflow: hidden;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panelOpen {
+  animation: panelIn 0.35s var(--ease-out);
+}
+
+[data-theme='dark'] .panel {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.panelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panelEyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.panelLead {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gold);
+  transition: gap 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.viewAll:hover {
+  gap: 0.55rem;
+  color: var(--accent);
+}
+
+.viewAll svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.serviceList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.serviceLink {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--bg-muted) 70%, transparent);
+  transition:
+    background-color 0.22s var(--ease-out),
+    border-color 0.22s var(--ease-out),
+    transform 0.22s var(--ease-out);
+}
+
+.serviceLink:hover {
+  background: var(--bg-elevated);
+  border-color: color-mix(in srgb, var(--gold) 35%, var(--border));
+  transform: translateY(-1px);
+}
+
+.serviceIcon {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  color: var(--gold);
+}
+
+.serviceIcon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.serviceCopy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.serviceTitle {
+  font-size: 0.98rem;
+  font-weight: 750;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.serviceHint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.serviceArrow {
+  width: 1rem;
+  height: 1rem;
+  color: var(--gold);
+  opacity: 0.55;
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.serviceLink:hover .serviceArrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+html[dir='rtl'] .serviceLink:hover .serviceArrow {
+  transform: translateX(-3px);
+}
+
+@keyframes pillarIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .serviceList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar,
+  .panelOpen {
+    animation: none;
+  }
+}

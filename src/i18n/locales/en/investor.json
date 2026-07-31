@@ -1,0 +1,151 @@
+{
+  "hero": {
+    "eyebrow": "Foreign investor",
+    "title": "Invest in Saudi Arabia — we handle the setup journey",
+    "description": "From the investment licence to full operations, the Expavio team runs every regulatory and government procedure on your behalf, with a clear path, known timelines, and a single point of contact.",
+    "primaryCta": "Start your investment journey",
+    "secondaryCta": "Talk to an advisor",
+    "imageAlt": "Investors meeting in an office overlooking the Riyadh skyline",
+    "stats": [
+      { "value": "100%", "label": "Foreign ownership in eligible activities" },
+      { "value": "10+", "label": "Integrated services under one roof" },
+      { "value": "A–Z", "label": "Full management of government procedures" }
+    ]
+  },
+  "audience": {
+    "eyebrow": "Who we serve",
+    "title": "We serve every form of foreign investment",
+    "subtitle": "We define the right regulatory path based on your investment type, size, and target market.",
+    "items": [
+      {
+        "title": "Individual investor",
+        "description": "Individuals entering the Saudi market with an independent, licensed entity."
+      },
+      {
+        "title": "Foreign company",
+        "description": "Companies established abroad seeking to set up a Saudi entity."
+      },
+      {
+        "title": "International groups",
+        "description": "Multi-market groups that need careful structuring and compliance."
+      },
+      {
+        "title": "Companies opening a regional branch",
+        "description": "Entities that want a regional headquarters or branch serving the region from Riyadh."
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Everything you need to enter and operate in Saudi Arabia",
+    "subtitle": "One bundle covering licensing, formation, registrations, compliance, and launch.",
+    "items": [
+      {
+        "title": "Investment licence issuance",
+        "description": "Preparing and submitting the file to the authority and tracking it to issuance."
+      },
+      {
+        "title": "Foreign company formation",
+        "description": "Choosing the legal form, incorporating the entity, and notarising the articles."
+      },
+      {
+        "title": "Branch opening",
+        "description": "Opening a branch of a foreign company or a regional headquarters per requirements."
+      },
+      {
+        "title": "100% foreign ownership",
+        "description": "Assessing your activity and confirming full-ownership eligibility and licences."
+      },
+      {
+        "title": "Residency and visas",
+        "description": "Issuing the investor residency and team visas, plus renewal follow-up."
+      },
+      {
+        "title": "Bank account opening",
+        "description": "Preparing documents and following up on opening the corporate bank account."
+      },
+      {
+        "title": "Government registrations",
+        "description": "Registration with mandatory authorities, platforms, and tax registration."
+      },
+      {
+        "title": "Compliance and accounting",
+        "description": "Bookkeeping, tax filings, and periodic reporting."
+      },
+      {
+        "title": "Operations and hiring",
+        "description": "Premises, recruitment, hiring, and getting operations running."
+      }
+    ]
+  },
+  "journey": {
+    "eyebrow": "Investor journey",
+    "title": "Seven stages from idea to operations",
+    "subtitle": "A clear path, one accountable owner, and updates at every stage.",
+    "imageAlt": "International team reviewing an investment plan",
+    "steps": [
+      {
+        "title": "Activity assessment",
+        "description": "We review your activity and its fit with foreign investment regulations."
+      },
+      {
+        "title": "Legal form selection",
+        "description": "We recommend the right entity: company, branch, or regional headquarters."
+      },
+      {
+        "title": "Licence issuance",
+        "description": "We prepare the file and follow the investment licence to issuance."
+      },
+      {
+        "title": "Company formation",
+        "description": "Commercial registration, articles of association, and notarisation."
+      },
+      {
+        "title": "Government registrations",
+        "description": "Mandatory authorities, platforms, and tax registration."
+      },
+      {
+        "title": "Bank account and residencies",
+        "description": "Opening the bank account and issuing investor and team residencies."
+      },
+      {
+        "title": "Launch operations",
+        "description": "Premises, hiring, compliance, and following your first operating cycle."
+      }
+    ]
+  },
+  "form": {
+    "eyebrow": "Foreign investor form",
+    "title": "Tell us about your planned investment",
+    "subtitle": "Fill in the form and a specialist advisor will come back with an initial plan and a clear requirements list.",
+    "selectPlaceholder": "Select...",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "nationality": "Nationality",
+    "country": "Country of residence",
+    "activity": "Target activity",
+    "hasCompany": "Do you have an existing company?",
+    "hasCompanyOptions": ["Yes, I have an existing company", "No, I'm starting from scratch"],
+    "investmentType": "Investment type",
+    "investmentTypeOptions": [
+      "New company formation",
+      "Branch of a foreign company",
+      "Regional headquarters",
+      "Acquisition or share purchase",
+      "Partnership with a Saudi entity"
+    ],
+    "capital": "Approximate capital",
+    "capitalOptions": [
+      "Under SAR 500,000",
+      "SAR 500,000 – 2 million",
+      "SAR 2 – 10 million",
+      "Over SAR 10 million"
+    ],
+    "services": "Services needed",
+    "servicesHint": "Select all that apply",
+    "notes": "Additional notes",
+    "submit": "Submit request",
+    "success": "Your request was received. Our foreign investor advisor will contact you shortly."
+  }
+}

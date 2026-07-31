@@ -1,0 +1,99 @@
+{
+  "title": "Our services",
+  "subtitle": "Professional solutions covering formation, consulting, technology, and operations.",
+  "detailsCta": "Discover service",
+  "itemsLabel": "sub-services",
+  "itemsTitle": "What’s included",
+  "related": "Related services",
+  "notFound": "Service not found",
+  "megaMenu": {
+    "headline": "End-to-end solutions for your business",
+    "subtitle": "Pick the right service or book a consultation to map your path.",
+    "viewAll": "View all services"
+  },
+  "page": {
+    "hero": {
+      "eyebrow": "Services",
+      "title": "Integrated solutions for every stage of your business",
+      "description": "From formation and licensing to consulting, digital transformation, and operations — choose the right service or start with a ready-made path for your project stage.",
+      "primaryCta": "Book a consultation",
+      "secondaryCta": "Browse ready paths"
+    },
+    "filters": {
+      "label": "Filter by category",
+      "count": "{{count}} services",
+      "empty": "No services in this category right now."
+    },
+    "grid": {
+      "eyebrow": "All services",
+      "title": "Complete services",
+      "subtitle": "Browse all ten Expavio services, and filter by category to find what you need faster."
+    },
+    "packages": {
+      "eyebrow": "Ready paths",
+      "title": "Solution packages tailored to your need",
+      "subtitle": "Three practical paths that bundle services in a clear order — from idea to operations and growth.",
+      "cta": "Explore path"
+    },
+    "banner": {
+      "title": "Not sure which service fits?",
+      "subtitle": "Talk to an Expavio advisor and we'll map the right path for your project stage.",
+      "primaryCta": "Book a consultation",
+      "secondaryCta": "Contact us"
+    }
+  },
+  "details": {
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "primaryCta": "Request a consultation for this service",
+    "secondaryCta": "Contact us",
+    "overview": {
+      "eyebrow": "About the service",
+      "title": "Why this service?",
+      "outcomeLabel": "What you get"
+    },
+    "subServices": {
+      "eyebrow": "Details",
+      "title": "Sub-services"
+    },
+    "audience": {
+      "eyebrow": "Audience",
+      "title": "Who is this service for?"
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "title": "Service delivery steps"
+    },
+    "deliverables": {
+      "eyebrow": "Deliverables",
+      "title": "What does the client receive?"
+    },
+    "related": {
+      "eyebrow": "More",
+      "title": "Related services"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions about this service"
+    },
+    "form": {
+      "eyebrow": "Get started",
+      "title": "Request a consultation for this service",
+      "subtitle": "Tell us what you need and the Expavio team will get back to you soon.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "message": "Your message",
+      "submit": "Submit request",
+      "success": "Your request was received. We'll contact you soon."
+    },
+    "sticky": {
+      "title": "Ready to start?",
+      "subtitle": "Book a specialist consultation for this service, or send your request via the form.",
+      "primaryCta": "Book a consultation",
+      "secondaryCta": "Use the form",
+      "hint": "Most requests get a reply within one business day"
+    }
+  }
+}

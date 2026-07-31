@@ -1,0 +1,252 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 800;
+  height: var(--header-h);
+  background: var(--header-bg);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(16px) saturate(1.2);
+  transition:
+    border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out),
+    background-color 0.3s var(--ease-out);
+}
+
+.scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: 0 8px 32px rgba(44, 86, 198, 0.06);
+}
+
+[data-theme='dark'] .scrolled {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.megaOpen {
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+.logoImg {
+  height: 2.65rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav {
+  display: none;
+  align-items: stretch;
+  gap: 0.15rem;
+  align-self: stretch;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 0.3rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: color 0.25s var(--ease-out);
+}
+
+.navText {
+  position: relative;
+  z-index: 1;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0.8rem;
+  bottom: 0.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), #e8c878);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.navLink:hover {
+  color: var(--text);
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  transform: scaleX(1);
+}
+
+.navLinkActive {
+  color: var(--text);
+}
+
+.navLinkActive .navText {
+  color: var(--gold);
+}
+
+.servicesItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.chevron {
+  width: 0.85rem;
+  height: 0.85rem;
+  opacity: 0.7;
+  transition: transform 0.3s var(--ease-out), opacity 0.25s var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  opacity: 1;
+  color: var(--gold);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.themeBtn,
+.menuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
+}
+
+.themeBtn svg,
+.menuBtn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.themeBtn:hover,
+.menuBtn:hover {
+  color: var(--gold);
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--border));
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+
+.langSwitch {
+  display: none;
+  align-items: center;
+  padding: 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+}
+
+.langOption {
+  padding: 0.35rem 0.65rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    color 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+
+.langActive {
+  color: var(--expavio-ink);
+  background: var(--gold);
+  box-shadow: 0 2px 8px rgba(201, 162, 78, 0.35);
+}
+
+[data-theme='dark'] .langActive {
+  color: var(--expavio-ink);
+}
+
+.langDivider {
+  width: 1px;
+  height: 0.9rem;
+  background: var(--border);
+}
+
+.cta {
+  display: none;
+}
+
+.menuBtn {
+  display: inline-flex;
+}
+
+@media (min-width: 960px) {
+  .nav {
+    display: flex;
+  }
+
+  .langSwitch {
+    display: inline-flex;
+  }
+
+  .cta {
+    display: inline-flex;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .menuBtn {
+    display: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .nav {
+    gap: 0.25rem;
+  }
+
+  .navLink {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 959px) {
+  .themeBtn {
+    display: none;
+  }
+}

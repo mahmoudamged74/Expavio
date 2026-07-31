@@ -1,0 +1,48 @@
+{
+  "brand": "Expavio",
+  "tagline": "Your Vision, Our Mission",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "foreignInvestor": "Foreign Investor",
+    "consultation": "Consultation",
+    "contact": "Contact"
+  },
+  "actions": {
+    "getConsultation": "Get a consultation",
+    "bookConsultation": "Book consultation",
+    "exploreServices": "Explore services",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "send": "Send",
+    "back": "Back"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toggle": "Toggle theme"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "toggle": "Switch language"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "pages": "Pages",
+    "quickLinks": "Quick links",
+    "contactTitle": "Contact Us",
+    "policies": "Policies",
+    "whatsapp": "WhatsApp",
+    "blurb": "Integrated solutions for investors and companies in the Kingdom — from formation and licensing to operations and growth.",
+    "note": "Investment and operational services — Kingdom of Saudi Arabia"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, we couldn't find the page you're looking for.",
+    "cta": "Back to home"
+  }
+}

@@ -1,0 +1,404 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  justify-content: flex-end;
+}
+
+html[dir='rtl'] .root {
+  justify-content: flex-start;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(10, 24, 56, 0.45);
+  cursor: pointer;
+  animation: fadeIn 0.22s var(--ease-out);
+}
+
+[data-theme='dark'] .backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 21.5rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-elevated);
+  border-inline-start: 1px solid var(--border);
+  box-shadow: -16px 0 48px rgba(44, 86, 198, 0.16);
+  animation: slideIn 0.3s var(--ease-out);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+html[dir='rtl'] .panel {
+  border-inline-start: 0;
+  border-inline-end: 1px solid var(--border);
+  box-shadow: 16px 0 48px rgba(44, 86, 198, 0.16);
+  animation-name: slideInRtl;
+}
+
+[data-theme='dark'] .panel {
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.4);
+}
+
+html[dir='rtl'][data-theme='dark'] .panel {
+  box-shadow: 16px 0 48px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--gold) 8%, var(--bg-elevated)) 0%,
+    var(--bg-elevated) 100%
+  );
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.logo {
+  height: 2.35rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.brandName {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.brandTag {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 11rem;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    background-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.close svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--border));
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  outline: none;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.85rem 0.9rem;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navLink {
+  display: block;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0.8rem;
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out);
+}
+
+.navLink:hover {
+  background: var(--bg-muted);
+}
+
+.navLinkActive {
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  color: var(--gold);
+}
+
+.servicesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.servicesRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.servicesMain {
+  min-width: 0;
+}
+
+.servicesToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out),
+    transform 0.18s var(--ease-out);
+}
+
+.servicesToggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.22s var(--ease-out);
+}
+
+.servicesToggleOpen {
+  color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+}
+
+.servicesToggleOpen svg {
+  transform: rotate(180deg);
+}
+
+.servicesPanel {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.15rem 0 0.35rem;
+  padding: 0.55rem;
+  border-radius: 0.9rem;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+}
+
+.servicesPanel[hidden] {
+  display: none;
+}
+
+.serviceGroup + .serviceGroup {
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--border);
+}
+
+.groupLabel {
+  margin: 0 0 0.3rem;
+  padding-inline: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.subNav {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.subLink {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.45rem;
+  border-radius: 0.65rem;
+  font-size: 0.86rem;
+  font-weight: 550;
+  color: var(--text-muted);
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out);
+}
+
+.subLink:hover,
+.subLinkActive {
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+
+.subIcon {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.subIcon svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.footer {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.95rem 1.1rem 1.15rem;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-muted) 55%, var(--bg-elevated));
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.langSwitch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+  padding: 0.22rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+}
+
+.langOption {
+  padding: 0.5rem 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out);
+}
+
+.langActive {
+  background: var(--gold);
+  color: var(--expavio-ink);
+}
+
+.themeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 2.45rem;
+  padding: 0 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    border-color 0.18s var(--ease-out),
+    color 0.18s var(--ease-out),
+    background-color 0.18s var(--ease-out);
+}
+
+.themeBtn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.themeBtn:hover {
+  color: var(--gold);
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--border));
+}
+
+.cta {
+  width: 100%;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0.6;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRtl {
+  from {
+    transform: translateX(-100%);
+    opacity: 0.6;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 380px) {
+  .themeBtn span {
+    display: none;
+  }
+
+  .brandTag {
+    max-width: 8.5rem;
+  }
+}

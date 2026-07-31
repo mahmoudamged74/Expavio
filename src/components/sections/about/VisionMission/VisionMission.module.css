@@ -1,0 +1,125 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg-muted);
+}
+
+.glow {
+  position: absolute;
+  inset: -20% 30% auto -10%;
+  height: 60%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, color-mix(in srgb, var(--expavio-teal) 14%, transparent), transparent 65%),
+    radial-gradient(ellipse at 80% 60%, color-mix(in srgb, var(--expavio-gold) 10%, transparent), transparent 60%);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  --tone: var(--expavio-blue);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.85rem 1.65rem;
+  border-radius: 1.15rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: rise 0.7s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 90ms);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tone), transparent);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--tone) 32%, var(--border));
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--tone) 16%, transparent);
+}
+
+.blue {
+  --tone: var(--expavio-blue);
+}
+
+.teal {
+  --tone: var(--expavio-teal);
+}
+
+.gold {
+  --tone: var(--expavio-gold);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
+  font-size: 1.3rem;
+  color: var(--tone);
+  background: color-mix(in srgb, var(--tone) 12%, transparent);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.cardBody {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}

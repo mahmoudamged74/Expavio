@@ -1,0 +1,129 @@
+{
+  "hero": {
+    "eyebrow": "About us",
+    "title": "Your partner in building and growing business",
+    "description": "Expavio is an integrated services ecosystem for investors and companies in the Kingdom — from formation and licensing to consulting, digital transformation, and operational support, on one clear path with one accountable team.",
+    "primaryCta": "Start with Expavio",
+    "secondaryCta": "Explore our services",
+    "imageAlt": "Expavio exhibition stand showcasing the company identity",
+    "stats": [
+      { "value": "10", "label": "Specialized services" },
+      { "value": "4", "label": "Core pillars" },
+      { "value": "100%", "label": "Foreign ownership possible" }
+    ]
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Why Expavio was founded",
+    "imageAlt": "The Expavio team planning and tracking client projects",
+    "blocks": [
+      {
+        "title": "The beginning",
+        "body": "Expavio started from a recurring observation: a business owner has a clear opportunity but ends up split across multiple providers — one for formation, another for legal, a third for finance, a fourth for technology. The result is longer timelines, higher cost, and decisions based on incomplete information."
+      },
+      {
+        "title": "The problem we solve",
+        "body": "Fragmented services are the real obstacle for many projects. Without a single party that sees the full picture, every stage restarts from zero, the investor re-explains the project each time, and no one truly owns the final outcome."
+      },
+      {
+        "title": "How we bring services into one ecosystem",
+        "body": "We built Expavio as a connected ecosystem, not a list of separate services. One team reads your project once, then builds an integrated path linking investment, legal, financial, technical, and operational work — with one point of reference and one follow-through from idea to growth."
+      }
+    ],
+    "highlight": {
+      "title": "The idea in one line",
+      "body": "One partner, one path, clear accountability — from licensing to operations and growth."
+    }
+  },
+  "visionMission": {
+    "eyebrow": "Vision & mission",
+    "title": "Where we're heading, and how we work",
+    "vision": {
+      "label": "Our vision",
+      "body": "To be the first partner for investors and companies in the Kingdom, with an integrated ecosystem that makes building and growing a business a clear, reliable path."
+    },
+    "mission": {
+      "label": "Our mission",
+      "body": "To empower our clients with practical solutions that combine investment, legal, financial, and technical work into one path — simplifying procedures and accelerating a compliant, sustainable launch."
+    },
+    "promise": {
+      "label": "Our promise",
+      "body": "Clarity at every step, honesty in assessment, and accountability through operations — we don't sell you a service, we stay with you until you get there."
+    }
+  },
+  "values": {
+    "eyebrow": "Our values",
+    "title": "The values we work by",
+    "subtitle": "Six values that define how we handle every project and every client.",
+    "items": [
+      {
+        "title": "Professionalism",
+        "description": "Structured standards and precise deliverables at every stage — no promises we can't execute."
+      },
+      {
+        "title": "Transparency",
+        "description": "Full clarity on requirements, timelines, and costs from the very first meeting."
+      },
+      {
+        "title": "Integration",
+        "description": "Connecting investment, legal, financial, and technical work into one coherent ecosystem."
+      },
+      {
+        "title": "Innovation",
+        "description": "Practical solutions and modern digital tools that raise execution efficiency."
+      },
+      {
+        "title": "Commitment",
+        "description": "Clear ownership of every stage until the agreed outcome is complete."
+      },
+      {
+        "title": "Long-term relationships",
+        "description": "We build a partnership that continues after formation and grows with your business."
+      }
+    ]
+  },
+  "methodology": {
+    "eyebrow": "How we work",
+    "title": "Six steps that govern every project",
+    "subtitle": "A consistent methodology ensuring every decision is informed and every execution is planned.",
+    "imageAlt": "A digital workspace showing analytics dashboards and performance metrics",
+    "steps": [
+      { "title": "We listen", "description": "We understand your project, goal, timeline, and resources before any recommendation." },
+      { "title": "We analyze", "description": "We study the opportunity, regulatory and financial requirements, and assess alternatives realistically." },
+      { "title": "We plan", "description": "We build a clear execution plan with stages, owners, and a defined timeline." },
+      { "title": "We execute", "description": "We complete procedures, licensing, and agreed work with a specialized team." },
+      { "title": "We follow up", "description": "We track progress, clear blockers, and keep you updated at every approval point." },
+      { "title": "We develop", "description": "We measure results after launch and open sustainable improvement and expansion paths." }
+    ]
+  },
+  "leadership": {
+    "eyebrow": "Team & leadership",
+    "title": "Multi-disciplinary expertise under one point of reference",
+    "description": "Expavio is led by a team combining formation, consulting, legal, financial, and technology expertise — with a management style that keeps the client at the center of decisions and one reference point per project.",
+    "pillars": [
+      {
+        "title": "Advisory leadership",
+        "description": "Decisions built on analysis and market insight, not assumptions."
+      },
+      {
+        "title": "Regulatory expertise",
+        "description": "Precise understanding of authority requirements and compliance procedures."
+      },
+      {
+        "title": "Financial depth",
+        "description": "Financial reading that supports feasibility, modeling, and capital decisions."
+      },
+      {
+        "title": "Technical enablement",
+        "description": "Automation, systems, and AI solutions that raise operational efficiency."
+      }
+    ],
+    "note": "One account lead stays with you from the first consultation through operations."
+  },
+  "cta": {
+    "title": "Start with Expavio",
+    "subtitle": "Book a consultation and we'll map the right path for your project stage.",
+    "primaryCta": "Book a consultation",
+    "secondaryCta": "Contact us"
+  }
+}

@@ -1,0 +1,8 @@
+.section {
+  background: var(--bg-muted);
+}
+
+.accordionWrap {
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+}
