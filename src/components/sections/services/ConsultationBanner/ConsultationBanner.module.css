@@ -14,11 +14,11 @@
   border-radius: 1.35rem;
   background:
     radial-gradient(ellipse 55% 70% at 0% 50%, rgba(87, 195, 165, 0.28), transparent 55%),
-    radial-gradient(ellipse 50% 65% at 100% 40%, rgba(44, 86, 198, 0.45), transparent 58%),
-    linear-gradient(135deg, #152a7a 0%, var(--expavio-blue) 55%, #1f3f9a 100%);
+    radial-gradient(ellipse 50% 65% at 100% 40%, rgba(77, 125, 224, 0.4), transparent 58%),
+    linear-gradient(135deg, #17368f 0%, var(--expavio-blue) 55%, #4d7de0 100%);
   box-shadow:
-    0 28px 64px rgba(10, 24, 56, 0.28),
-    0 12px 28px rgba(44, 86, 198, 0.18);
+    0 28px 64px rgba(26, 58, 158, 0.28),
+    0 12px 28px rgba(44, 86, 198, 0.22);
   color: var(--text-on-dark);
 }
 

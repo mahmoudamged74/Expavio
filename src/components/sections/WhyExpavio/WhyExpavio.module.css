@@ -188,9 +188,9 @@
 
 [data-theme='dark'] .section {
   background:
-    radial-gradient(ellipse 48% 42% at 100% 8%, rgba(44, 86, 198, 0.22), transparent 60%),
-    radial-gradient(ellipse 40% 36% at 0% 90%, rgba(87, 195, 165, 0.1), transparent 55%),
-    #0a1638;
+    radial-gradient(ellipse 48% 42% at 100% 8%, rgba(77, 125, 224, 0.28), transparent 60%),
+    radial-gradient(ellipse 40% 36% at 0% 90%, rgba(87, 195, 165, 0.12), transparent 55%),
+    var(--bg);
 }
 
 [data-theme='dark'] .eyebrow {

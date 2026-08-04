@@ -1,67 +1,67 @@
-import { useEffect, useId, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
-import { NavLink } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import clsx from 'clsx'
-import {
-  HiXMark,
-  HiChevronDown,
-  HiMoon,
-  HiSun,
-} from 'react-icons/hi2'
-import { Button } from '@/components/ui/Button/Button'
-import { useTheme } from '@/app/providers/ThemeProvider'
-import { switchLanguage } from '@/app/providers/LanguageProvider'
-import { getLocalizedServiceGroups } from '@/features/services'
-import { getServiceIcon } from '@/features/services/icons'
-import styles from './MobileMenu.module.css'
+import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import clsx from "clsx";
+import { HiXMark, HiChevronDown, HiMoon, HiSun } from "react-icons/hi2";
+import { Button } from "@/components/ui/Button/Button";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { switchLanguage } from "@/app/providers/LanguageProvider";
+import { getLocalizedServiceGroups } from "@/features/services";
+import { getServiceIcon } from "@/features/services/icons";
+import styles from "./MobileMenu.module.css";
 
 export function MobileMenu({ isOpen, onClose }) {
-  const { t, i18n } = useTranslation('common')
-  const { theme, toggleTheme } = useTheme()
-  const groups = getLocalizedServiceGroups(i18n.language)
-  const isAr = i18n.language?.startsWith('ar')
-  const [servicesOpen, setServicesOpen] = useState(false)
-  const closeRef = useRef(null)
-  const titleId = useId()
+  const { t, i18n } = useTranslation("common");
+  const { theme, toggleTheme } = useTheme();
+  const groups = getLocalizedServiceGroups(i18n.language);
+  const isAr = i18n.language?.startsWith("ar");
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const closeRef = useRef(null);
+  const titleId = useId();
 
   useEffect(() => {
     if (!isOpen) {
-      setServicesOpen(false)
-      return undefined
+      setServicesOpen(false);
+      return undefined;
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const timer = window.setTimeout(() => closeRef.current?.focus(), 40)
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const timer = window.setTimeout(() => closeRef.current?.focus(), 40);
 
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
-    }
+      if (event.key === "Escape") onClose();
+    };
 
-    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      window.clearTimeout(timer)
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
-    }
-  }, [isOpen, onClose])
+      window.clearTimeout(timer);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOpen, onClose]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const navClass = ({ isActive }) =>
-    clsx(styles.navLink, isActive && styles.navLinkActive)
+    clsx(styles.navLink, isActive && styles.navLinkActive);
 
   const subClass = ({ isActive }) =>
-    clsx(styles.subLink, isActive && styles.subLinkActive)
+    clsx(styles.subLink, isActive && styles.subLinkActive);
 
   return createPortal(
-    <div className={styles.root} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+    <div
+      className={styles.root}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+    >
       <button
         type="button"
         className={styles.backdrop}
-        aria-label={t('actions.back')}
+        aria-label={t("actions.back")}
         onClick={onClose}
       />
 
@@ -78,9 +78,9 @@ export function MobileMenu({ isOpen, onClose }) {
             />
             <div>
               <p id={titleId} className={styles.brandName}>
-                {t('brand')}
+                {t("brand")}
               </p>
-              <p className={styles.brandTag}>{t('tagline')}</p>
+              <p className={styles.brandTag}>{t("tagline")}</p>
             </div>
           </div>
           <button
@@ -88,18 +88,18 @@ export function MobileMenu({ isOpen, onClose }) {
             type="button"
             className={styles.close}
             onClick={onClose}
-            aria-label={t('actions.back')}
+            aria-label={t("actions.back")}
           >
             <HiXMark aria-hidden="true" />
           </button>
         </div>
 
-        <nav className={styles.nav} aria-label={t('footer.quickLinks')}>
+        <nav className={styles.nav} aria-label={t("footer.quickLinks")}>
           <NavLink to="/" end className={navClass} onClick={onClose}>
-            {t('nav.home')}
+            {t("nav.home")}
           </NavLink>
           <NavLink to="/about" className={navClass} onClick={onClose}>
-            {t('nav.about')}
+            {t("nav.about")}
           </NavLink>
 
           <div className={styles.servicesBlock}>
@@ -107,15 +107,22 @@ export function MobileMenu({ isOpen, onClose }) {
               <NavLink
                 to="/services"
                 className={({ isActive }) =>
-                  clsx(styles.navLink, styles.servicesMain, isActive && styles.navLinkActive)
+                  clsx(
+                    styles.navLink,
+                    styles.servicesMain,
+                    isActive && styles.navLinkActive,
+                  )
                 }
                 onClick={onClose}
               >
-                {t('nav.services')}
+                {t("nav.services")}
               </NavLink>
               <button
                 type="button"
-                className={clsx(styles.servicesToggle, servicesOpen && styles.servicesToggleOpen)}
+                className={clsx(
+                  styles.servicesToggle,
+                  servicesOpen && styles.servicesToggleOpen,
+                )}
                 aria-expanded={servicesOpen}
                 aria-controls="mobile-services-panel"
                 onClick={() => setServicesOpen((prev) => !prev)}
@@ -134,7 +141,7 @@ export function MobileMenu({ isOpen, onClose }) {
                   <p className={styles.groupLabel}>{group.title}</p>
                   <ul className={styles.subNav}>
                     {group.services.map((service) => {
-                      const Icon = getServiceIcon(service.icon)
+                      const Icon = getServiceIcon(service.icon);
 
                       return (
                         <li key={service.slug}>
@@ -149,7 +156,7 @@ export function MobileMenu({ isOpen, onClose }) {
                             <span>{service.title}</span>
                           </NavLink>
                         </li>
-                      )
+                      );
                     })}
                   </ul>
                 </div>
@@ -157,21 +164,29 @@ export function MobileMenu({ isOpen, onClose }) {
             </div>
           </div>
 
-          <NavLink to="/foreign-investor" className={navClass} onClick={onClose}>
-            {t('nav.foreignInvestor')}
+          <NavLink
+            to="/foreign-investor"
+            className={navClass}
+            onClick={onClose}
+          >
+            {t("nav.foreignInvestor")}
           </NavLink>
           <NavLink to="/contact" className={navClass} onClick={onClose}>
-            {t('nav.contact')}
+            {t("nav.contact")}
           </NavLink>
         </nav>
 
         <div className={styles.footer}>
           <div className={styles.controls}>
-            <div className={styles.langSwitch} role="group" aria-label={t('lang.toggle')}>
+            <div
+              className={styles.langSwitch}
+              role="group"
+              aria-label={t("lang.toggle")}
+            >
               <button
                 type="button"
                 className={clsx(styles.langOption, isAr && styles.langActive)}
-                onClick={() => switchLanguage(i18n, 'ar')}
+                onClick={() => switchLanguage(i18n, "ar")}
                 aria-pressed={isAr}
               >
                 AR
@@ -179,7 +194,7 @@ export function MobileMenu({ isOpen, onClose }) {
               <button
                 type="button"
                 className={clsx(styles.langOption, !isAr && styles.langActive)}
-                onClick={() => switchLanguage(i18n, 'en')}
+                onClick={() => switchLanguage(i18n, "en")}
                 aria-pressed={!isAr}
               >
                 EN
@@ -190,19 +205,30 @@ export function MobileMenu({ isOpen, onClose }) {
               type="button"
               className={styles.themeBtn}
               onClick={toggleTheme}
-              aria-label={t('theme.toggle')}
+              aria-label={t("theme.toggle")}
             >
-              {theme === 'dark' ? <HiSun aria-hidden="true" /> : <HiMoon aria-hidden="true" />}
-              <span>{theme === 'dark' ? t('theme.light') : t('theme.dark')}</span>
+              {theme === "dark" ? (
+                <HiSun aria-hidden="true" />
+              ) : (
+                <HiMoon aria-hidden="true" />
+              )}
+              <span>
+                {theme === "dark" ? t("theme.light") : t("theme.dark")}
+              </span>
             </button>
           </div>
 
-          <Button to="/consultation" size="md" className={styles.cta} onClick={onClose}>
-            {t('actions.bookConsultation')}
+          <Button
+            to="/consultation"
+            size="md"
+            className={styles.cta}
+            onClick={onClose}
+          >
+            {t("actions.bookConsultation")}
           </Button>
         </div>
       </div>
     </div>,
     document.body,
-  )
+  );
 }

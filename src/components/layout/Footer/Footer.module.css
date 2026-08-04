@@ -1,7 +1,33 @@
 .footer {
+  position: relative;
   margin-top: auto;
-  background: var(--expavio-ink);
+  /* Darker top edge so the section start reads clearly */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.32) 0%,
+      rgba(0, 0, 0, 0.12) 2.75rem,
+      transparent 6rem
+    ),
+    var(--bg-band);
   color: rgba(234, 238, 247, 0.82);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 20%,
+    rgba(0, 0, 0, 0.45) 50%,
+    rgba(0, 0, 0, 0.35) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 /* .inner {

@@ -75,21 +75,6 @@
       "Clear understanding of local and foreign investor needs"
     ]
   },
-  "solutionsByStage": {
-    "eyebrow": "Your path",
-    "title": "Solutions for every stage",
-    "subtitle": "Choose your project profile and we’ll show the services that fit that stage.",
-    "matched": "Matching services",
-    "viewService": "Service details",
-    "profiles": {
-      "new-investor": "An investor starting a new project",
-      "foreign-company": "A foreign company entering the Saudi market",
-      "restructuring": "A company that needs restructuring",
-      "digital": "An organization seeking digital transformation",
-      "operations": "A company that needs operations or outsourcing",
-      "brand-growth": "A brand ready to expand and market"
-    }
-  },
   "foreignInvestor": {
     "eyebrow": "Foreign Investor",
     "title": "Start your investment in the Kingdom with confidence",

@@ -1,17 +1,27 @@
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '@/app/providers/ThemeProvider'
 import { Button } from '@/components/ui/Button/Button'
 import styles from './HeroSection.module.css'
+
+function getHeroBg(isAr, isLight) {
+  if (isLight) {
+    return isAr ? '/assets/hero-ar-light.webp' : '/assets/hero-en-light.webp'
+  }
+  return isAr ? '/assets/hero-ar.webp' : '/assets/hero-en.webp'
+}
 
 export function HeroSection() {
   const { t, i18n } = useTranslation('home')
   const { t: tc } = useTranslation('common')
+  const { theme } = useTheme()
   const isAr = i18n.language?.startsWith('ar')
-  const bgSrc = isAr ? '/assets/heroar.webp' : '/assets/hero.webp'
+  const isLight = theme === 'light'
+  const bgSrc = getHeroBg(isAr, isLight)
 
   return (
     <section
-      className={`${styles.hero} ${isAr ? styles.ar : styles.en}`}
+      className={`${styles.hero} ${isAr ? styles.ar : styles.en} ${isLight ? styles.light : styles.dark}`}
       aria-labelledby="hero-title"
       style={{ backgroundImage: `url(${bgSrc})` }}
     >

@@ -9,9 +9,19 @@
       content="Expavio — Your Vision, Our Mission. Corporate services and investor support."
     />
     <title>Expavio</title>
-    <link rel="preload" as="image" href="/assets/expavio-logo.webp" type="image/webp" />
-    <link rel="preload" as="image" href="/assets/hero.webp" type="image/webp" />
-    <link rel="preload" as="image" href="/assets/heroar.webp" type="image/webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/expavio-logo.webp"
+      type="image/webp"
+    />
+    <link rel="preload" as="image" href="/assets/hero-en.webp" type="image/webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/hero-ar.webp"
+      type="image/webp"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,17 +31,17 @@
     <script>
       (function () {
         try {
-          var theme = localStorage.getItem('expavio-theme')
+          var theme = localStorage.getItem("expavio-theme");
           if (!theme) {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'dark'
-              : 'light'
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
           }
-          document.documentElement.setAttribute('data-theme', theme)
+          document.documentElement.setAttribute("data-theme", theme);
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'light')
+          document.documentElement.setAttribute("data-theme", "light");
         }
-      })()
+      })();
     </script>
   </head>
   <body>

@@ -3,9 +3,15 @@
   overflow: hidden;
   padding-block: clamp(3.5rem, 8vw, 6rem);
   background:
-    radial-gradient(ellipse 50% 45% at 100% 0%, rgba(44, 86, 198, 0.28), transparent 55%),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.06) 2.5rem,
+      transparent 5.5rem
+    ),
+    radial-gradient(ellipse 50% 45% at 100% 0%, rgba(77, 125, 224, 0.28), transparent 55%),
     radial-gradient(ellipse 40% 40% at 0% 100%, rgba(87, 195, 165, 0.12), transparent 50%),
-    var(--expavio-ink);
+    var(--bg-band);
   color: var(--text-on-dark);
 }
 
