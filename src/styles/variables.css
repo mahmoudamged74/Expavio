@@ -49,28 +49,24 @@
   --shadow: 0 12px 40px rgba(44, 86, 198, 0.1);
   --header-bg: rgba(245, 247, 252, 0.88);
   --overlay: rgba(10, 24, 56, 0.42);
-  /* Brand-blue band (footer / investor strip) — not near-black */
-  --bg-band: #2c56c6;
 }
 
-/* Dark mode — brand blue (#2c56c6) led, lighter than deep navy */
+/* Dark mode — deeper blue tones */
 [data-theme="dark"] {
-  --bg: #1a3a9e;
-  --bg-elevated: #2348b8;
-  --bg-muted: #2c56c6;
-  --bg-hero: linear-gradient(145deg, #17368f 0%, #2c56c6 52%, #4d7de0 100%);
+  --bg: #0a1638;
+  --bg-elevated: #122456;
+  --bg-muted: #16306a;
+  --bg-hero: linear-gradient(145deg, #152a7a 0%, #2c56c6 55%, #3f7ad8 100%);
   --text: #eef2fa;
-  --text-muted: #b8c4de;
+  --text-muted: var(--expavio-slate);
   --text-on-dark: #f4f7fb;
-  --border: rgba(234, 238, 247, 0.14);
-  --border-strong: rgba(234, 238, 247, 0.22);
-  --accent: #8eb0ff;
-  --accent-soft: rgba(142, 176, 255, 0.22);
+  --border: rgba(234, 238, 247, 0.1);
+  --border-strong: rgba(234, 238, 247, 0.18);
+  --accent: #6b8eeb;
+  --accent-soft: rgba(44, 86, 198, 0.28);
   --teal: #6fd4b6;
   --gold: #d4b05e;
-  --shadow: 0 16px 48px rgba(16, 40, 110, 0.4);
-  --header-bg: rgba(26, 58, 158, 0.92);
-  --overlay: rgba(16, 40, 100, 0.55);
-  /* Match the lighter dark-mode page blue */
-  --bg-band: #1a3a9e;
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  --header-bg: rgba(10, 22, 56, 0.9);
+  --overlay: rgba(0, 0, 0, 0.55);
 }
