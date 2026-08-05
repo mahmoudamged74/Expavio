@@ -16,19 +16,34 @@ const jobs = [
   },
 
   // Full-bleed / large photos
-  { src: "hero-en.png", out: "hero-en.webp", width: 1920, quality: 72 },
-  { src: "hero-ar.png", out: "hero-ar.webp", width: 1920, quality: 72 },
+  // Hero backgrounds stay PNG — palette quantization keeps them under ~500KB
   {
-    src: "hero-en-light.png",
-    out: "hero-en-light.webp",
-    width: 1920,
-    quality: 72,
+    src: "hero-new-ar-dark.png",
+    out: "hero-ar-dark.png",
+    width: 1600,
+    quality: 76,
+    format: "png",
   },
   {
-    src: "hero-ar-light.png",
-    out: "hero-ar-light.webp",
-    width: 1920,
-    quality: 72,
+    src: "hero-new-ar-light.png",
+    out: "hero-ar-light.png",
+    width: 1600,
+    quality: 76,
+    format: "png",
+  },
+  {
+    src: "hero-new-en-dark.png",
+    out: "hero-en-dark.png",
+    width: 1600,
+    quality: 76,
+    format: "png",
+  },
+  {
+    src: "hero-new-en-light.png",
+    out: "hero-en-light.png",
+    width: 1600,
+    quality: 76,
+    format: "png",
   },
   {
     src: "foreign-investor.png",
@@ -81,7 +96,12 @@ async function optimizeOne(job) {
 
   if (job.format === "png") {
     await pipeline
-      .png({ quality: job.quality, compressionLevel: 9 })
+      .png({
+        quality: job.quality,
+        palette: true,
+        effort: 10,
+        compressionLevel: 9,
+      })
       .toFile(output);
   } else {
     await pipeline.webp({ quality: job.quality }).toFile(output);

@@ -44,15 +44,17 @@ export function SplashScreen() {
       }, wait);
     };
 
-    // Prefetch critical home images while splash is up
+    // Warm the remaining hero variants so theme/language switches are instant.
+    // The active variant is already preloaded from index.html.
     [
-      "/assets/hero-en.webp",
-      "/assets/hero-ar.webp",
-      "/assets/hero-en-light.webp",
-      "/assets/hero-ar-light.webp",
+      "/assets/hero-ar-dark.png",
+      "/assets/hero-ar-light.png",
+      "/assets/hero-en-dark.png",
+      "/assets/hero-en-light.png",
       "/assets/expavio-logo.webp",
     ].forEach((src) => {
       const img = new Image();
+      img.fetchPriority = "low";
       img.src = src;
     });
 

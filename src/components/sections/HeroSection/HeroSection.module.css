@@ -5,10 +5,18 @@
   min-height: calc(100vh - var(--header-h));
   display: flex;
   align-items: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   padding-block: clamp(3.25rem, 7vw, 5.5rem);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
 }
 
 .dark {
@@ -22,13 +30,13 @@
 }
 
 /* EN: visual on the right — keep it anchored */
-.en {
-  background-position: right center;
+.en .bg {
+  object-position: right center;
 }
 
 /* AR: visual on the left — keep the chevron visible */
-.ar {
-  background-position: left center;
+.ar .bg {
+  object-position: left center;
 }
 
 .scrim {
@@ -189,12 +197,11 @@
   .hero {
     min-height: auto;
     padding-block: clamp(3rem, 8vw, 4.25rem) 3rem;
-    background-position: center top;
   }
 
-  .en,
-  .ar {
-    background-position: center top;
+  .en .bg,
+  .ar .bg {
+    object-position: center top;
   }
 
   .dark .scrim {
@@ -240,7 +247,6 @@
 
 @media (max-width: 575.98px) {
   .hero {
-    background-size: cover;
     min-height: calc(100svh - var(--header-h));
   }
 

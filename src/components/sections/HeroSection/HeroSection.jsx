@@ -5,10 +5,9 @@ import { Button } from '@/components/ui/Button/Button'
 import styles from './HeroSection.module.css'
 
 function getHeroBg(isAr, isLight) {
-  if (isLight) {
-    return isAr ? '/assets/hero-ar-light.webp' : '/assets/hero-en-light.webp'
-  }
-  return isAr ? '/assets/hero-ar.webp' : '/assets/hero-en.webp'
+  const lang = isAr ? 'ar' : 'en'
+  const mode = isLight ? 'light' : 'dark'
+  return `/assets/hero-${lang}-${mode}.png`
 }
 
 export function HeroSection() {
@@ -23,8 +22,15 @@ export function HeroSection() {
     <section
       className={`${styles.hero} ${isAr ? styles.ar : styles.en} ${isLight ? styles.light : styles.dark}`}
       aria-labelledby="hero-title"
-      style={{ backgroundImage: `url(${bgSrc})` }}
     >
+      <img
+        src={bgSrc}
+        alt=""
+        aria-hidden="true"
+        className={styles.bg}
+        decoding="async"
+        fetchPriority="high"
+      />
       <div className={styles.scrim} aria-hidden="true" />
 
       <Container className={styles.container}>

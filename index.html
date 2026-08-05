@@ -15,13 +15,6 @@
       href="/assets/expavio-logo.webp"
       type="image/webp"
     />
-    <link rel="preload" as="image" href="/assets/hero-en.webp" type="image/webp" />
-    <link
-      rel="preload"
-      as="image"
-      href="/assets/hero-ar.webp"
-      type="image/webp"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,17 +23,39 @@
     />
     <script>
       (function () {
+        var theme = "light";
+        var lang = "ar";
+
         try {
-          var theme = localStorage.getItem("expavio-theme");
-          if (!theme) {
+          theme = localStorage.getItem("expavio-theme");
+          if (theme !== "light" && theme !== "dark") {
             theme = window.matchMedia("(prefers-color-scheme: dark)").matches
               ? "dark"
               : "light";
           }
-          document.documentElement.setAttribute("data-theme", theme);
         } catch (e) {
-          document.documentElement.setAttribute("data-theme", "light");
+          theme = "light";
         }
+
+        try {
+          var stored = localStorage.getItem("expavio-lang");
+          var detected = stored || navigator.language || "ar";
+          lang = detected.indexOf("en") === 0 ? "en" : "ar";
+        } catch (e) {
+          lang = "ar";
+        }
+
+        document.documentElement.setAttribute("data-theme", theme);
+
+        // Start fetching the hero image before the app bundle runs, so it is
+        // already cached by the time the splash screen fades out.
+        var preload = document.createElement("link");
+        preload.rel = "preload";
+        preload.as = "image";
+        preload.type = "image/png";
+        preload.setAttribute("fetchpriority", "high");
+        preload.href = "/assets/hero-" + lang + "-" + theme + ".png";
+        document.head.appendChild(preload);
       })();
     </script>
   </head>
