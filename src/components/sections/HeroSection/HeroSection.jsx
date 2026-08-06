@@ -2,6 +2,7 @@ import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { Button } from '@/components/ui/Button/Button'
+import { useHero } from '@/hooks/useHero'
 import styles from './HeroSection.module.css'
 
 function getHeroBg(isAr, isLight) {
@@ -14,9 +15,15 @@ export function HeroSection() {
   const { t, i18n } = useTranslation('home')
   const { t: tc } = useTranslation('common')
   const { theme } = useTheme()
+  const { data: hero } = useHero()
   const isAr = i18n.language?.startsWith('ar')
   const isLight = theme === 'light'
   const bgSrc = getHeroBg(isAr, isLight)
+
+  const brand = hero?.name ?? tc('brand')
+  const tagline = hero?.subtitle ?? tc('tagline')
+  const title = hero?.title ?? t('hero.title')
+  const description = hero?.description ?? t('hero.subtitle')
 
   return (
     <section
@@ -35,12 +42,12 @@ export function HeroSection() {
 
       <Container className={styles.container}>
         <div className={`${styles.copy} ${styles.rise}`}>
-          <p className={styles.brand}>{tc('brand')}</p>
-          <p className={styles.tagline}>{tc('tagline')}</p>
+          <p className={styles.brand}>{brand}</p>
+          <p className={styles.tagline}>{tagline}</p>
           <h1 id="hero-title" className={`font-display ${styles.title}`}>
-            {t('hero.title')}
+            {title}
           </h1>
-          <p className={styles.subtitle}>{t('hero.subtitle')}</p>
+          <p className={styles.subtitle}>{description}</p>
           <div className={styles.actions}>
             <Button to="/consultation" variant="primary" size="lg">
               {t('hero.primaryCta')}
