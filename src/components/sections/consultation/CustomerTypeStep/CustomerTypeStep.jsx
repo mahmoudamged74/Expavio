@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import {
   HiUser,
   HiBuildingOffice2,
@@ -7,20 +6,19 @@ import {
   HiRocketLaunch,
 } from 'react-icons/hi2'
 import clsx from 'clsx'
+import { useTranslation } from 'react-i18next'
 import styles from './CustomerTypeStep.module.css'
 
 const ICONS = {
-  'individual-investor': HiUser,
-  'saudi-company': HiBuildingOffice2,
-  'foreign-company': HiGlobeAlt,
-  government: HiBuildingLibrary,
+  individual_investor: HiUser,
+  saudi_company: HiBuildingOffice2,
+  foreign_company: HiGlobeAlt,
+  government_entity: HiBuildingLibrary,
   startup: HiRocketLaunch,
 }
 
-export function CustomerTypeStep({ value, onChange, error }) {
+export function CustomerTypeStep({ value, onChange, error, options = [] }) {
   const { t } = useTranslation('consultation')
-  const options = t('customerType.options', { returnObjects: true })
-  const list = Array.isArray(options) ? options : []
 
   return (
     <div className={styles.step}>
@@ -30,23 +28,23 @@ export function CustomerTypeStep({ value, onChange, error }) {
       </header>
 
       <div className={styles.grid} role="radiogroup" aria-label={t('customerType.title')}>
-        {list.map((option) => {
-          const Icon = ICONS[option.id] ?? HiUser
-          const selected = value === option.id
+        {options.map((option) => {
+          const Icon = ICONS[option.key] ?? HiUser
+          const selected = value === option.key
 
           return (
             <button
-              key={option.id}
+              key={option.key}
               type="button"
               role="radio"
               aria-checked={selected}
               className={clsx(styles.card, selected && styles.selected)}
-              onClick={() => onChange(option.id)}
+              onClick={() => onChange(option.key)}
             >
               <span className={styles.icon} aria-hidden="true">
                 <Icon />
               </span>
-              <span className={styles.cardTitle}>{option.title}</span>
+              <span className={styles.cardTitle}>{option.label}</span>
               <span className={styles.cardText}>{option.description}</span>
             </button>
           )

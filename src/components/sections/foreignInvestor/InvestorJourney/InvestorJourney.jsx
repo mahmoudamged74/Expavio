@@ -1,11 +1,23 @@
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useForeignInvestor } from '@/hooks/useForeignInvestor'
 import styles from './InvestorJourney.module.css'
 
 export function InvestorJourney() {
   const { t } = useTranslation('investor')
-  const steps = t('journey.steps', { returnObjects: true })
-  const list = Array.isArray(steps) ? steps : []
+  const { data } = useForeignInvestor()
+  const journey = data?.journey
+  const fallbackSteps = t('journey.steps', { returnObjects: true })
+
+  const list =
+    Array.isArray(journey?.steps) && journey.steps.length > 0
+      ? journey.steps.map((step) => ({
+          title: step.title,
+          description: step.description,
+        }))
+      : Array.isArray(fallbackSteps)
+        ? fallbackSteps
+        : []
 
   return (
     <section
@@ -17,11 +29,13 @@ export function InvestorJourney() {
 
       <Container className={styles.container}>
         <div className={styles.head}>
-          <p className={styles.eyebrow}>{t('journey.eyebrow')}</p>
+          <p className={styles.eyebrow}>{journey?.eyebrow ?? t('journey.eyebrow')}</p>
           <h2 id="investor-journey-title" className={`font-display ${styles.title}`}>
-            {t('journey.title')}
+            {journey?.title ?? t('journey.title')}
           </h2>
-          <p className={styles.subtitle}>{t('journey.subtitle')}</p>
+          <p className={styles.subtitle}>
+            {journey?.description ?? t('journey.subtitle')}
+          </p>
         </div>
 
         <ol className={styles.steps}>

@@ -1,11 +1,30 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useAboutUs } from '@/hooks/useAboutUs'
 import styles from './CompanyStory.module.css'
 
 export function CompanyStory() {
   const { t } = useTranslation('about')
-  const blocks = t('story.blocks', { returnObjects: true })
-  const list = Array.isArray(blocks) ? blocks : []
+  const { data } = useAboutUs()
+  const story = data?.story
+  const fallbackBlocks = t('story.blocks', { returnObjects: true })
+
+  const eyebrow = story?.eyebrow ?? t('story.eyebrow')
+  const title = story?.title ?? t('story.title')
+  const imageSrc = story?.image_url || '/assets/about-story.webp'
+  const imageAlt = story?.image_alt ?? t('story.imageAlt')
+  const highlightTitle = story?.idea_label ?? t('story.highlight.title')
+  const highlightBody = story?.idea_text ?? t('story.highlight.body')
+
+  const list =
+    Array.isArray(story?.items) && story.items.length > 0
+      ? story.items.map((item) => ({
+          title: item.title,
+          body: item.description,
+        }))
+      : Array.isArray(fallbackBlocks)
+        ? fallbackBlocks
+        : []
 
   return (
     <section className={`section ${styles.section}`} aria-labelledby="about-story-title">
@@ -13,15 +32,15 @@ export function CompanyStory() {
         <Row className="g-4 g-xl-5">
           <Col xs={12} lg={5}>
             <div className={styles.aside}>
-              <p className={styles.eyebrow}>{t('story.eyebrow')}</p>
+              <p className={styles.eyebrow}>{eyebrow}</p>
               <h2 id="about-story-title" className={`font-display ${styles.title}`}>
-                {t('story.title')}
+                {title}
               </h2>
 
               <figure className={styles.media}>
                 <img
-                  src="/assets/about-story.webp"
-                  alt={t('story.imageAlt')}
+                  src={imageSrc}
+                  alt={imageAlt}
                   className={styles.image}
                   width={1200}
                   height={900}
@@ -31,8 +50,8 @@ export function CompanyStory() {
               </figure>
 
               <div className={styles.highlight}>
-                <p className={styles.highlightLabel}>{t('story.highlight.title')}</p>
-                <p className={styles.highlightBody}>{t('story.highlight.body')}</p>
+                <p className={styles.highlightLabel}>{highlightTitle}</p>
+                <p className={styles.highlightBody}>{highlightBody}</p>
               </div>
             </div>
           </Col>

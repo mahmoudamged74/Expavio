@@ -8,10 +8,13 @@ import {
 } from 'react-icons/fa6'
 import { Button } from '@/components/ui/Button/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
+import { useSettings } from '@/hooks/useSettings'
+import { toWhatsAppHref } from '@/lib/contact'
 import styles from './SocialLinks.module.css'
 
 const ICONS = {
   linkedin: FaLinkedinIn,
+  twitter: FaXTwitter,
   x: FaXTwitter,
   instagram: FaInstagram,
   youtube: FaYoutube,
@@ -19,8 +22,28 @@ const ICONS = {
 
 export function SocialLinks() {
   const { t } = useTranslation('contact')
-  const links = t('social.links', { returnObjects: true })
-  const list = Array.isArray(links) ? links : []
+  const { data: settings } = useSettings()
+  const fallbackLinks = t('social.links', { returnObjects: true })
+
+  const list =
+    settings?.social_links
+      ? Object.entries(settings.social_links)
+          .filter(([, href]) => Boolean(href))
+          .map(([id, href]) => ({
+            id,
+            href,
+            label:
+              (Array.isArray(fallbackLinks)
+                ? fallbackLinks.find((item) => item.id === id || (id === 'twitter' && item.id === 'x'))
+                    ?.label
+                : null) ?? id,
+          }))
+      : Array.isArray(fallbackLinks)
+        ? fallbackLinks
+        : []
+
+  const whatsappHref =
+    toWhatsAppHref(settings?.whatsapp) ?? t('info.whatsapp.href')
 
   return (
     <section className={`section ${styles.section}`} aria-labelledby="contact-social-title">
@@ -55,7 +78,7 @@ export function SocialLinks() {
         </ul>
 
         <Button
-          href={t('info.whatsapp.href')}
+          href={whatsappHref}
           variant="primary"
           size="lg"
           className={styles.whatsapp}

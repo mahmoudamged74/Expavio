@@ -1,11 +1,5 @@
-import { apiClient } from '@/lib/api/client'
+import { apiGet } from '@/lib/api/request'
 
-export async function fetchHero(language) {
-  const lang = language?.startsWith('ar') ? 'ar' : 'en'
-  const { data } = await apiClient.get('/hero', {
-    headers: {
-      'Accept-Language': lang,
-    },
-  })
-  return data.data
+export function fetchHero(language) {
+  return apiGet('/hero', language)
 }

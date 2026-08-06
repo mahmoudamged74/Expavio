@@ -1,11 +1,23 @@
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
+import { useAboutUs } from '@/hooks/useAboutUs'
 import styles from './WorkMethodology.module.css'
 
 export function WorkMethodology() {
   const { t } = useTranslation('about')
-  const steps = t('methodology.steps', { returnObjects: true })
-  const list = Array.isArray(steps) ? steps : []
+  const { data } = useAboutUs()
+  const methodology = data?.methodology
+  const fallbackSteps = t('methodology.steps', { returnObjects: true })
+
+  const list =
+    Array.isArray(methodology?.steps) && methodology.steps.length > 0
+      ? methodology.steps.map((step) => ({
+          title: step.title,
+          description: step.description,
+        }))
+      : Array.isArray(fallbackSteps)
+        ? fallbackSteps
+        : []
 
   return (
     <section
@@ -17,11 +29,15 @@ export function WorkMethodology() {
 
       <Container className={styles.container}>
         <div className={styles.head}>
-          <p className={styles.eyebrow}>{t('methodology.eyebrow')}</p>
+          <p className={styles.eyebrow}>
+            {methodology?.eyebrow ?? t('methodology.eyebrow')}
+          </p>
           <h2 id="about-method-title" className={`font-display ${styles.title}`}>
-            {t('methodology.title')}
+            {methodology?.title ?? t('methodology.title')}
           </h2>
-          <p className={styles.subtitle}>{t('methodology.subtitle')}</p>
+          <p className={styles.subtitle}>
+            {methodology?.description ?? t('methodology.subtitle')}
+          </p>
         </div>
 
         <ol className={styles.steps}>

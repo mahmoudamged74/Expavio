@@ -2,10 +2,16 @@ import { useTranslation } from 'react-i18next'
 import { HiMapPin, HiBuildingOffice2 } from 'react-icons/hi2'
 import { Button } from '@/components/ui/Button/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
+import { useSettings } from '@/hooks/useSettings'
 import styles from './OfficeLocation.module.css'
 
 export function OfficeLocation() {
   const { t } = useTranslation('contact')
+  const { data: settings } = useSettings()
+
+  const address = settings?.address ?? t('office.address')
+  const directionsHref =
+    settings?.directions_url || settings?.map_url || t('office.directionsHref')
 
   return (
     <section className={styles.section} aria-labelledby="contact-office-title">
@@ -24,10 +30,10 @@ export function OfficeLocation() {
           <h3 className={styles.name}>{t('office.name')}</h3>
           <p className={styles.address}>
             <HiMapPin aria-hidden="true" />
-            <span>{t('office.address')}</span>
+            <span>{address}</span>
           </p>
           <Button
-            href={t('office.directionsHref')}
+            href={directionsHref}
             variant="outline"
             size="md"
             target="_blank"

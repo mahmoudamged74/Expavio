@@ -1,14 +1,19 @@
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/Button/Button'
+import { useAboutUs } from '@/hooks/useAboutUs'
 import styles from './AboutHero.module.css'
 
 export function AboutHero() {
   const { t, i18n } = useTranslation('about')
+  const { data } = useAboutUs()
   const stats = t('hero.stats', { returnObjects: true })
   const statList = Array.isArray(stats) ? stats : []
   const isAr = i18n.language?.startsWith('ar')
   const bgSrc = isAr ? '/assets/about-hero-ar.webp' : '/assets/about-hero.webp'
+
+  const title = data?.hero_title ?? t('hero.title')
+  const description = data?.hero_description ?? t('hero.description')
 
   return (
     <section
@@ -23,9 +28,9 @@ export function AboutHero() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>{t('hero.eyebrow')}</p>
           <h1 id="about-hero-title" className={`font-display ${styles.title}`}>
-            {t('hero.title')}
+            {title}
           </h1>
-          <p className={styles.description}>{t('hero.description')}</p>
+          <p className={styles.description}>{description}</p>
 
           <div className={styles.actions}>
             <Button to="/consultation" variant="primary" size="lg">

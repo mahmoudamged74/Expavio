@@ -1,12 +1,28 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/Button/Button'
+import { useForeignInvestor } from '@/hooks/useForeignInvestor'
 import styles from './InvestorHero.module.css'
 
 export function InvestorHero() {
   const { t } = useTranslation('investor')
-  const stats = t('hero.stats', { returnObjects: true })
-  const statList = Array.isArray(stats) ? stats : []
+  const { data } = useForeignInvestor()
+  const hero = data?.hero
+  const fallbackStats = t('hero.stats', { returnObjects: true })
+
+  const title = hero?.title ?? t('hero.title')
+  const description = hero?.description ?? t('hero.description')
+  const primaryCta = hero?.primary_cta ?? t('hero.primaryCta')
+  const secondaryCta = hero?.secondary_cta ?? t('hero.secondaryCta')
+  const imageSrc = hero?.image_url || '/assets/investor-hero.webp'
+  const imageAlt = hero?.image_alt ?? t('hero.imageAlt')
+
+  const statList =
+    Array.isArray(hero?.stats) && hero.stats.length > 0
+      ? hero.stats
+      : Array.isArray(fallbackStats)
+        ? fallbackStats
+        : []
 
   return (
     <section className={styles.hero} aria-labelledby="investor-hero-title">
@@ -18,13 +34,13 @@ export function InvestorHero() {
             <div className={styles.copy}>
               <p className={styles.eyebrow}>{t('hero.eyebrow')}</p>
               <h1 id="investor-hero-title" className={`font-display ${styles.title}`}>
-                {t('hero.title')}
+                {title}
               </h1>
-              <p className={styles.description}>{t('hero.description')}</p>
+              <p className={styles.description}>{description}</p>
 
               <div className={styles.actions}>
                 <Button href="#investor-form" variant="primary" size="lg">
-                  {t('hero.primaryCta')}
+                  {primaryCta}
                 </Button>
                 <Button
                   to="/consultation"
@@ -32,7 +48,7 @@ export function InvestorHero() {
                   size="lg"
                   className={styles.secondaryCta}
                 >
-                  {t('hero.secondaryCta')}
+                  {secondaryCta}
                 </Button>
               </div>
 
@@ -53,8 +69,8 @@ export function InvestorHero() {
             <figure className={styles.media}>
               <span className={styles.mediaGlow} aria-hidden="true" />
               <img
-                src="/assets/investor-hero.webp"
-                alt={t('hero.imageAlt')}
+                src={imageSrc}
+                alt={imageAlt}
                 className={styles.image}
                 width={1400}
                 height={1050}

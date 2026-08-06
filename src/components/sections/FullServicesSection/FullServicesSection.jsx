@@ -2,12 +2,12 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
 import { ServiceCard } from '@/components/ui/ServiceCard/ServiceCard'
-import { getLocalizedServices } from '@/features/services'
+import { useServiceCatalog } from '@/hooks/useServiceCatalog'
 import styles from './FullServicesSection.module.css'
 
 export function FullServicesSection() {
-  const { t, i18n } = useTranslation('home')
-  const services = getLocalizedServices(i18n.language)
+  const { t } = useTranslation('home')
+  const { services } = useServiceCatalog()
 
   return (
     <section className={`section ${styles.section}`} aria-label={t('fullServices.title')}>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
+import { useClientJourney } from '@/hooks/useClientJourney'
 import styles from './JourneySection.module.css'
 
 const MOVE_MS = 1100
@@ -9,8 +10,20 @@ const HOLD_MS = 650
 
 export function JourneySection() {
   const { t, i18n } = useTranslation('home')
-  const steps = t('journey.steps', { returnObjects: true })
-  const list = Array.isArray(steps) ? steps : []
+  const { data: journey } = useClientJourney()
+  const fallbackSteps = t('journey.steps', { returnObjects: true })
+
+  const list =
+    Array.isArray(journey) && journey.length > 0
+      ? [...journey]
+          .sort((a, b) => (a.step_number ?? 0) - (b.step_number ?? 0))
+          .map((step) => ({
+            title: step.title,
+            description: step.description,
+          }))
+      : Array.isArray(fallbackSteps)
+        ? fallbackSteps
+        : []
 
   const [active, setActive] = useState(0)
   const [horizontal, setHorizontal] = useState(

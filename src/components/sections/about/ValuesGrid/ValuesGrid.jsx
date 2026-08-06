@@ -9,6 +9,7 @@ import {
   HiUsers,
 } from 'react-icons/hi2'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
+import { useAboutUs } from '@/hooks/useAboutUs'
 import styles from './ValuesGrid.module.css'
 
 const ICONS = [
@@ -22,16 +23,27 @@ const ICONS = [
 
 export function ValuesGrid() {
   const { t } = useTranslation('about')
-  const items = t('values.items', { returnObjects: true })
-  const list = Array.isArray(items) ? items : []
+  const { data } = useAboutUs()
+  const values = data?.values_section
+  const fallbackItems = t('values.items', { returnObjects: true })
+
+  const list =
+    Array.isArray(values?.items) && values.items.length > 0
+      ? values.items.map((item) => ({
+          title: item.title,
+          description: item.description,
+        }))
+      : Array.isArray(fallbackItems)
+        ? fallbackItems
+        : []
 
   return (
     <section className={`section ${styles.section}`} aria-labelledby="about-values-title">
       <Container>
         <SectionHeading
-          eyebrow={t('values.eyebrow')}
-          title={t('values.title')}
-          subtitle={t('values.subtitle')}
+          eyebrow={values?.eyebrow ?? t('values.eyebrow')}
+          title={values?.title ?? t('values.title')}
+          subtitle={values?.description ?? t('values.subtitle')}
           align="center"
         />
 

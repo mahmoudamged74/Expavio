@@ -2,10 +2,13 @@ import { useTranslation } from 'react-i18next'
 import { Input } from '@/components/ui/Input/Input'
 import styles from './ContactDetailsStep.module.css'
 
-export function ContactDetailsStep({ values, onChange, errors = {} }) {
+export function ContactDetailsStep({
+  values,
+  onChange,
+  errors = {},
+  timeOptions = [],
+}) {
   const { t } = useTranslation('consultation')
-  const times = t('contactDetails.timeOptions', { returnObjects: true })
-  const timeList = Array.isArray(times) ? times : []
 
   return (
     <div className={styles.step}>
@@ -63,11 +66,13 @@ export function ContactDetailsStep({ values, onChange, errors = {} }) {
           name="preferredTime"
           value={values.preferredTime}
           onChange={onChange}
+          error={errors.preferredTime}
+          required
         >
           <option value="">{t('contactDetails.preferredTimePlaceholder')}</option>
-          {timeList.map((option) => (
-            <option key={option} value={option}>
-              {option}
+          {timeOptions.map((option) => (
+            <option key={option.key} value={option.key}>
+              {option.label}
             </option>
           ))}
         </Input>

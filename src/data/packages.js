@@ -166,8 +166,16 @@ export function getLocalizedPackages(lang = 'ar') {
 }
 
 export function filterServicesByCategory(servicesList, filterId) {
+  if (!filterId || filterId === 'all') return servicesList
+
   const filter = serviceFilters.find((item) => item.id === filterId)
-  if (!filter || !filter.slugs) return servicesList
-  const set = new Set(filter.slugs)
-  return servicesList.filter((service) => set.has(service.slug))
+  if (filter?.slugs) {
+    const set = new Set(filter.slugs)
+    return servicesList.filter((service) => set.has(service.slug))
+  }
+
+  return servicesList.filter(
+    (service) =>
+      service.group === filterId || service.category?.id === filterId,
+  )
 }

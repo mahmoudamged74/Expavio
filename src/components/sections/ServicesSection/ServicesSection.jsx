@@ -1,21 +1,28 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { HiArrowLeft, HiArrowRight, HiChevronDown } from 'react-icons/hi2'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
-import { getLocalizedServiceGroups } from '@/features/services'
 import { getServiceIcon } from '@/features/services/icons'
+import { useServiceCatalog } from '@/hooks/useServiceCatalog'
 import styles from './ServicesSection.module.css'
 
 export function ServicesSection() {
   const { t, i18n } = useTranslation('home')
   const { t: tc } = useTranslation('common')
-  const groups = getLocalizedServiceGroups(i18n.language)
-  const [activeId, setActiveId] = useState(groups[0]?.id ?? null)
+  const { groups } = useServiceCatalog()
+  const [activeId, setActiveId] = useState(null)
   const panelId = useId()
   const isRtl = i18n.language?.startsWith('ar')
   const Arrow = isRtl ? HiArrowLeft : HiArrowRight
+
+  useEffect(() => {
+    if (!groups.length) return
+    setActiveId((prev) =>
+      groups.some((group) => group.id === prev) ? prev : groups[0].id,
+    )
+  }, [groups])
 
   const activeGroup = groups.find((group) => group.id === activeId) ?? groups[0]
 

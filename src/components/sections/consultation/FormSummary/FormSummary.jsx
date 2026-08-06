@@ -10,7 +10,7 @@ export function FormSummary({ values, labels, onEdit }) {
     { key: 'customerType', label: t('summary.customerType'), value: labels.customerType, step: 1 },
     { key: 'service', label: t('summary.service'), value: labels.service, step: 2 },
     { key: 'activity', label: t('summary.activity'), value: values.activity, step: 3 },
-    { key: 'stage', label: t('summary.stage'), value: values.stage, step: 3 },
+    { key: 'stage', label: t('summary.stage'), value: labels.stage, step: 3 },
     { key: 'city', label: t('summary.city'), value: values.city, step: 3 },
     { key: 'need', label: t('summary.need'), value: values.need, step: 3 },
     { key: 'name', label: t('summary.name'), value: values.name, step: 4 },
@@ -20,7 +20,7 @@ export function FormSummary({ values, labels, onEdit }) {
     {
       key: 'preferredTime',
       label: t('summary.preferredTime'),
-      value: values.preferredTime,
+      value: labels.preferredTime,
       step: 4,
     },
   ]

@@ -3,7 +3,14 @@ import clsx from 'clsx'
 import { getServiceIcon } from '@/features/services/icons'
 import styles from './ServiceSelectionStep.module.css'
 
-export function ServiceSelectionStep({ value, services = [], onChange, error }) {
+export function ServiceSelectionStep({
+  value,
+  services = [],
+  onChange,
+  error,
+  unsureLabel,
+  unsureDescription,
+}) {
   const { t } = useTranslation('consultation')
   const unsureId = 'unsure'
 
@@ -44,7 +51,12 @@ export function ServiceSelectionStep({ value, services = [], onChange, error }) 
           className={clsx(styles.card, styles.unsure, value === unsureId && styles.selected)}
           onClick={() => onChange(unsureId)}
         >
-          <span className={styles.cardTitle}>{t('serviceSelection.unsure')}</span>
+          <span className={styles.cardTitle}>
+            {unsureLabel || t('serviceSelection.unsure')}
+          </span>
+          {unsureDescription ? (
+            <span className={styles.cardText}>{unsureDescription}</span>
+          ) : null}
         </button>
       </div>
 

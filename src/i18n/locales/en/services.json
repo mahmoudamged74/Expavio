@@ -86,7 +86,15 @@
       "company": "Company",
       "message": "Your message",
       "submit": "Submit request",
-      "success": "Your request was received. We'll contact you soon."
+      "submitting": "Submitting...",
+      "success": "Your request was received. We'll contact you soon.",
+      "submitFailed": "Could not submit your request. Please try again.",
+      "validation": {
+        "name": "Name is required.",
+        "email": "Enter a valid email address.",
+        "phone": "Enter a valid mobile number.",
+        "message": "Message is required."
+      }
     },
     "sticky": {
       "title": "Ready to start?",

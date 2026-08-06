@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2'
-import { getLocalizedServiceGroups } from '@/features/services'
 import { getServiceIcon } from '@/features/services/icons'
+import { useServiceCatalog } from '@/hooks/useServiceCatalog'
 import styles from './MegaMenu.module.css'
 
 export function MegaMenu({ open, onClose, onMouseEnter, onMouseLeave }) {
   const { t, i18n } = useTranslation(['services', 'common'])
-  const groups = getLocalizedServiceGroups(i18n.language)
+  const { groups } = useServiceCatalog()
   const isRtl = i18n.language?.startsWith('ar')
   const Arrow = isRtl ? HiArrowLeft : HiArrowRight
 

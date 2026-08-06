@@ -7,14 +7,14 @@ import { HiXMark, HiChevronDown, HiMoon, HiSun } from "react-icons/hi2";
 import { Button } from "@/components/ui/Button/Button";
 import { useTheme } from "@/app/providers/ThemeProvider";
 import { switchLanguage } from "@/app/providers/LanguageProvider";
-import { getLocalizedServiceGroups } from "@/features/services";
 import { getServiceIcon } from "@/features/services/icons";
+import { useServiceCatalog } from "@/hooks/useServiceCatalog";
 import styles from "./MobileMenu.module.css";
 
 export function MobileMenu({ isOpen, onClose }) {
   const { t, i18n } = useTranslation("common");
   const { theme, toggleTheme } = useTheme();
-  const groups = getLocalizedServiceGroups(i18n.language);
+  const { groups } = useServiceCatalog();
   const isAr = i18n.language?.startsWith("ar");
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeRef = useRef(null);

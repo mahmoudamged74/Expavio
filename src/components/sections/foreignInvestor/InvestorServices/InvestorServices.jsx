@@ -12,6 +12,7 @@ import {
   HiUserGroup,
 } from 'react-icons/hi2'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
+import { useForeignInvestor } from '@/hooks/useForeignInvestor'
 import styles from './InvestorServices.module.css'
 
 const ICONS = [
@@ -28,16 +29,24 @@ const ICONS = [
 
 export function InvestorServices() {
   const { t } = useTranslation('investor')
-  const items = t('services.items', { returnObjects: true })
-  const list = Array.isArray(items) ? items : []
+  const { data } = useForeignInvestor()
+  const services = data?.services
+  const fallbackItems = t('services.items', { returnObjects: true })
+
+  const list =
+    Array.isArray(services?.items) && services.items.length > 0
+      ? services.items
+      : Array.isArray(fallbackItems)
+        ? fallbackItems
+        : []
 
   return (
     <section className={`section ${styles.section}`} aria-labelledby="investor-services-title">
       <Container>
         <SectionHeading
-          eyebrow={t('services.eyebrow')}
-          title={t('services.title')}
-          subtitle={t('services.subtitle')}
+          eyebrow={services?.eyebrow ?? t('services.eyebrow')}
+          title={services?.title ?? t('services.title')}
+          subtitle={services?.description ?? t('services.subtitle')}
           align="center"
         />
 

@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import { FaWhatsapp } from 'react-icons/fa6'
+import { useSettings } from '@/hooks/useSettings'
+import { toWhatsAppHref } from '@/lib/contact'
 import styles from './FloatingWhatsApp.module.css'
 
 export function FloatingWhatsApp() {
   const { t } = useTranslation('contact')
-  const href = t('info.whatsapp.href')
+  const { data: settings } = useSettings()
+  const href = toWhatsAppHref(settings?.whatsapp) ?? t('info.whatsapp.href')
   const label = t('info.whatsapp.label')
 
   return (

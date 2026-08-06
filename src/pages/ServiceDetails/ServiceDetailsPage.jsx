@@ -1,6 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { ServiceDetailsHero } from '@/components/sections/serviceDetails/ServiceDetailsHero/ServiceDetailsHero'
 import { ServiceOverview } from '@/components/sections/serviceDetails/ServiceOverview/ServiceOverview'
 import { SubServicesList } from '@/components/sections/serviceDetails/SubServicesList/SubServicesList'
@@ -11,15 +10,14 @@ import { RelatedServices } from '@/components/sections/serviceDetails/RelatedSer
 import { ServiceFAQ } from '@/components/sections/serviceDetails/ServiceFAQ/ServiceFAQ'
 import { ServiceInquiryForm } from '@/components/sections/serviceDetails/ServiceInquiryForm/ServiceInquiryForm'
 import { StickyConsultationCard } from '@/components/sections/serviceDetails/StickyConsultationCard/StickyConsultationCard'
-import { getFullServiceDetails } from '@/features/services'
+import { useServiceDetails } from '@/hooks/useServiceCatalog'
 import { NotFoundPage } from '@/pages/NotFound/NotFoundPage'
 import styles from './ServiceDetailsPage.module.css'
 
 export function ServiceDetailsPage() {
   const { slug } = useParams()
-  const { i18n } = useTranslation('services')
+  const { service } = useServiceDetails(slug)
 
-  const service = getFullServiceDetails(slug, i18n.language)
   if (!service) return <NotFoundPage />
 
   const items = Array.isArray(service.items) ? service.items : []
@@ -41,6 +39,7 @@ export function ServiceDetailsPage() {
                 <RelatedServices services={service.related} />
                 <ServiceFAQ items={service.faq} />
                 <ServiceInquiryForm
+                  serviceId={service.id}
                   serviceSlug={service.slug}
                   serviceTitle={service.title}
                 />

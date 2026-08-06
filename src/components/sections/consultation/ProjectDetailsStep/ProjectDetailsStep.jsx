@@ -2,10 +2,13 @@ import { useTranslation } from 'react-i18next'
 import { Input } from '@/components/ui/Input/Input'
 import styles from './ProjectDetailsStep.module.css'
 
-export function ProjectDetailsStep({ values, onChange, errors = {} }) {
+export function ProjectDetailsStep({
+  values,
+  onChange,
+  errors = {},
+  stages = [],
+}) {
   const { t } = useTranslation('consultation')
-  const stages = t('projectDetails.stages', { returnObjects: true })
-  const stageList = Array.isArray(stages) ? stages : []
 
   return (
     <div className={styles.step}>
@@ -31,11 +34,13 @@ export function ProjectDetailsStep({ values, onChange, errors = {} }) {
             name="stage"
             value={values.stage}
             onChange={onChange}
+            error={errors.stage}
+            required
           >
             <option value="">{t('projectDetails.stagePlaceholder')}</option>
-            {stageList.map((stage) => (
-              <option key={stage} value={stage}>
-                {stage}
+            {stages.map((stage) => (
+              <option key={stage.key} value={stage.key}>
+                {stage.label}
               </option>
             ))}
           </Input>
@@ -47,6 +52,8 @@ export function ProjectDetailsStep({ values, onChange, errors = {} }) {
           value={values.city}
           onChange={onChange}
           placeholder={t('projectDetails.cityPlaceholder')}
+          error={errors.city}
+          required
         />
 
         <Input

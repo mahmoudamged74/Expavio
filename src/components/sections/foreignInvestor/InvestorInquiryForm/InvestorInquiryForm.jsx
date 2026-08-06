@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Input } from '@/components/ui/Input/Input'
 import { Button } from '@/components/ui/Button/Button'
 import { SectionHeading } from '@/components/ui/SectionHeading/SectionHeading'
-import { buildConsultationPayload } from '@/features/consultation'
+import { submitForeignInvestorInquiry } from '@/api/foreignInvestor'
+import {
+  CAPITAL_OPTIONS,
+  HAS_EXISTING_COMPANY_OPTIONS,
+  INVESTMENT_TYPE_OPTIONS,
+  SERVICES_NEEDED_KEYS,
+  buildForeignInvestorPayload,
+  validateForeignInvestorForm,
+} from '@/features/foreignInvestor/formOptions'
+import { parseApiFormErrors } from '@/lib/api/formErrors'
+import { useApiLang } from '@/hooks/useApiLang'
+import { useForeignInvestor } from '@/hooks/useForeignInvestor'
 import styles from './InvestorInquiryForm.module.css'
 
 const INITIAL = {
@@ -22,38 +33,107 @@ const INITIAL = {
 
 export function InvestorInquiryForm() {
   const { t } = useTranslation('investor')
+  const lang = useApiLang()
+  const { data } = useForeignInvestor()
   const [values, setValues] = useState(INITIAL)
   const [selectedServices, setSelectedServices] = useState([])
+  const [errors, setErrors] = useState({})
+  const [submitError, setSubmitError] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  const toArray = (key) => {
-    const value = t(key, { returnObjects: true })
-    return Array.isArray(value) ? value : []
-  }
+  const serviceOptions = useMemo(() => {
+    const apiItems = Array.isArray(data?.services?.items)
+      ? data.services.items
+      : null
+    const fallbackItems = t('services.items', { returnObjects: true })
+    const items =
+      apiItems?.length > 0
+        ? apiItems
+        : Array.isArray(fallbackItems)
+          ? fallbackItems
+          : []
 
-  const hasCompanyOptions = toArray('form.hasCompanyOptions')
-  const investmentTypeOptions = toArray('form.investmentTypeOptions')
-  const capitalOptions = toArray('form.capitalOptions')
-  const serviceOptions = toArray('services.items').map((item) => item.title)
+    return SERVICES_NEEDED_KEYS.map((key, index) => ({
+      key,
+      label: items[index]?.title || key,
+    }))
+  }, [data?.services?.items, t])
+
+  const formTitle = data?.form?.title ?? t('form.title')
+  const formDescription = data?.form?.description ?? t('form.subtitle')
+
+  const clearError = (name) => {
+    if (!errors[name]) return
+    setErrors((prev) => {
+      const next = { ...prev }
+      delete next[name]
+      return next
+    })
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setValues((prev) => ({ ...prev, [name]: value }))
+    clearError(name)
   }
 
-  const toggleService = (service) => {
+  const toggleService = (key) => {
     setSelectedServices((prev) =>
-      prev.includes(service) ? prev.filter((item) => item !== service) : [...prev, service],
+      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],
     )
+    clearError('services')
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    buildConsultationPayload(
-      { ...values, services: selectedServices },
-      { source: 'foreign-investor-landing' },
-    )
-    setSubmitted(true)
+    const invalid = validateForeignInvestorForm(values, selectedServices)
+    if (invalid) {
+      setErrors({ [invalid]: t(`form.validation.${invalid}`) })
+      setSubmitError(t(`form.validation.${invalid}`))
+      return
+    }
+
+    setSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      await submitForeignInvestorInquiry(
+        buildForeignInvestorPayload(values, selectedServices),
+        lang,
+      )
+      setSubmitted(true)
+    } catch (error) {
+      const parsed = parseApiFormErrors(error)
+      const apiToForm = {
+        nationality: 'nationality',
+        country_of_residence: 'country',
+        target_activity: 'activity',
+        has_existing_company: 'hasCompany',
+        investment_type: 'investmentType',
+        approximate_capital: 'capital',
+        services_needed: 'services',
+        notes: 'notes',
+        name: 'name',
+        email: 'email',
+        phone: 'phone',
+      }
+      if (parsed.firstField) {
+        const mapped = {}
+        for (const [apiField, msg] of Object.entries(parsed.fieldErrors)) {
+          mapped[apiToForm[apiField] || apiField] = msg
+        }
+        setErrors(mapped)
+        setSubmitError(
+          mapped[apiToForm[parsed.firstField] || parsed.firstField] ||
+            parsed.message,
+        )
+      } else {
+        setSubmitError(parsed.message || t('form.submitFailed'))
+      }
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -65,8 +145,8 @@ export function InvestorInquiryForm() {
       <Container>
         <SectionHeading
           eyebrow={t('form.eyebrow')}
-          title={t('form.title')}
-          subtitle={t('form.subtitle')}
+          title={formTitle}
+          subtitle={formDescription}
           align="center"
         />
 
@@ -83,6 +163,7 @@ export function InvestorInquiryForm() {
                 value={values.name}
                 onChange={handleChange}
                 autoComplete="name"
+                error={errors.name}
                 required
               />
               <Input
@@ -92,6 +173,7 @@ export function InvestorInquiryForm() {
                 value={values.email}
                 onChange={handleChange}
                 autoComplete="email"
+                error={errors.email}
                 required
               />
             </div>
@@ -104,12 +186,15 @@ export function InvestorInquiryForm() {
                 value={values.phone}
                 onChange={handleChange}
                 autoComplete="tel"
+                error={errors.phone}
               />
               <Input
                 label={t('form.nationality')}
                 name="nationality"
                 value={values.nationality}
                 onChange={handleChange}
+                error={errors.nationality}
+                required
               />
             </div>
 
@@ -120,12 +205,16 @@ export function InvestorInquiryForm() {
                 value={values.country}
                 onChange={handleChange}
                 autoComplete="country-name"
+                error={errors.country}
+                required
               />
               <Input
                 label={t('form.activity')}
                 name="activity"
                 value={values.activity}
                 onChange={handleChange}
+                error={errors.activity}
+                required
               />
             </div>
 
@@ -136,11 +225,13 @@ export function InvestorInquiryForm() {
                 name="hasCompany"
                 value={values.hasCompany}
                 onChange={handleChange}
+                error={errors.hasCompany}
+                required
               >
                 <option value="">{t('form.selectPlaceholder')}</option>
-                {hasCompanyOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
+                {HAS_EXISTING_COMPANY_OPTIONS.map((option) => (
+                  <option key={option.key} value={option.key}>
+                    {t(option.labelKey)}
                   </option>
                 ))}
               </Input>
@@ -150,11 +241,13 @@ export function InvestorInquiryForm() {
                 name="investmentType"
                 value={values.investmentType}
                 onChange={handleChange}
+                error={errors.investmentType}
+                required
               >
                 <option value="">{t('form.selectPlaceholder')}</option>
-                {investmentTypeOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
+                {INVESTMENT_TYPE_OPTIONS.map((option) => (
+                  <option key={option.key} value={option.key}>
+                    {t(option.labelKey)}
                   </option>
                 ))}
               </Input>
@@ -166,11 +259,13 @@ export function InvestorInquiryForm() {
               name="capital"
               value={values.capital}
               onChange={handleChange}
+              error={errors.capital}
+              required
             >
               <option value="">{t('form.selectPlaceholder')}</option>
-              {capitalOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
+              {CAPITAL_OPTIONS.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {t(option.labelKey)}
                 </option>
               ))}
             </Input>
@@ -182,23 +277,28 @@ export function InvestorInquiryForm() {
               </legend>
               <div className={styles.options}>
                 {serviceOptions.map((service) => {
-                  const checked = selectedServices.includes(service)
+                  const checked = selectedServices.includes(service.key)
                   return (
                     <label
-                      key={service}
+                      key={service.key}
                       className={`${styles.option} ${checked ? styles.optionChecked : ''}`}
                     >
                       <input
                         type="checkbox"
                         className={styles.checkbox}
                         checked={checked}
-                        onChange={() => toggleService(service)}
+                        onChange={() => toggleService(service.key)}
                       />
-                      <span>{service}</span>
+                      <span>{service.label}</span>
                     </label>
                   )
                 })}
               </div>
+              {errors.services ? (
+                <p className={styles.fieldError} role="alert">
+                  {errors.services}
+                </p>
+              ) : null}
             </fieldset>
 
             <Input
@@ -208,10 +308,23 @@ export function InvestorInquiryForm() {
               value={values.notes}
               onChange={handleChange}
               rows={4}
+              error={errors.notes}
             />
 
-            <Button type="submit" variant="primary" size="lg" className={styles.submit}>
-              {t('form.submit')}
+            {submitError ? (
+              <p className={styles.submitError} role="alert">
+                {submitError}
+              </p>
+            ) : null}
+
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              className={styles.submit}
+              disabled={submitting}
+            >
+              {submitting ? t('form.submitting') : t('form.submit')}
             </Button>
           </form>
         )}

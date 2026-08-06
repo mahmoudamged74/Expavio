@@ -49,7 +49,14 @@
     "subject": "Subject",
     "message": "Your message",
     "submit": "Send message",
-    "success": "Your message was sent successfully. We'll contact you soon."
+    "submitting": "Submitting...",
+    "success": "Your message was sent successfully. We'll contact you soon.",
+    "submitFailed": "Could not send your message. Please try again.",
+    "validation": {
+      "name": "Name is required.",
+      "email": "Enter a valid email address.",
+      "message": "Message is required."
+    }
   },
   "office": {
     "eyebrow": "Office",

@@ -18,6 +18,7 @@
     "next": "Next",
     "back": "Back",
     "submit": "Submit request",
+    "submitting": "Sending...",
     "edit": "Edit"
   },
   "customerType": {
@@ -118,9 +119,13 @@
     "customerType": "Select a client type to continue.",
     "service": "Select a service to continue.",
     "activity": "Enter your activity.",
+    "stage": "Select the current stage.",
+    "city": "Enter your city.",
     "need": "Add a short description of your need.",
     "name": "Name is required.",
-    "phone": "Phone number is required.",
-    "email": "Enter a valid email address."
+    "phone": "Enter a valid mobile number.",
+    "email": "Enter a valid email address.",
+    "preferredTime": "Select a preferred contact time.",
+    "submitFailed": "Could not submit your request. Please try again."
   }
 }

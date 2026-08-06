@@ -126,26 +126,40 @@
     "country": "Country of residence",
     "activity": "Target activity",
     "hasCompany": "Do you have an existing company?",
-    "hasCompanyOptions": ["Yes, I have an existing company", "No, I'm starting from scratch"],
+    "hasCompanyYes": "Yes, I have an existing company",
+    "hasCompanyNo": "No, I'm starting from scratch",
     "investmentType": "Investment type",
-    "investmentTypeOptions": [
-      "New company formation",
-      "Branch of a foreign company",
-      "Regional headquarters",
-      "Acquisition or share purchase",
-      "Partnership with a Saudi entity"
-    ],
+    "investmentTypes": {
+      "new_entity": "New company formation",
+      "foreign_branch": "Branch of a foreign company",
+      "regional_hq": "Regional headquarters",
+      "acquisition": "Acquisition or share purchase",
+      "saudi_partnership": "Partnership with a Saudi entity"
+    },
     "capital": "Approximate capital",
-    "capitalOptions": [
-      "Under SAR 500,000",
-      "SAR 500,000 – 2 million",
-      "SAR 2 – 10 million",
-      "Over SAR 10 million"
-    ],
+    "capitalRanges": {
+      "under_500k": "Under SAR 500,000",
+      "500k_2m": "SAR 500,000 – 2 million",
+      "2m_10m": "SAR 2 – 10 million",
+      "over_10m": "Over SAR 10 million"
+    },
     "services": "Services needed",
     "servicesHint": "Select all that apply",
     "notes": "Additional notes",
     "submit": "Submit request",
-    "success": "Your request was received. Our foreign investor advisor will contact you shortly."
+    "submitting": "Submitting...",
+    "success": "Your request was received. Our foreign investor advisor will contact you shortly.",
+    "submitFailed": "Could not submit your request. Please try again.",
+    "validation": {
+      "name": "Name is required.",
+      "email": "Enter a valid email address.",
+      "nationality": "Nationality is required.",
+      "country": "Country of residence is required.",
+      "activity": "Target activity is required.",
+      "hasCompany": "Select company status.",
+      "investmentType": "Select an investment type.",
+      "capital": "Select approximate capital.",
+      "services": "Select at least one service."
+    }
   }
 }

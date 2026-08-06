@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from 'react-i18next'
 import { fetchHero } from '@/api/hero'
+import { useApiLang } from '@/hooks/useApiLang'
 
 export function useHero() {
-  const { i18n } = useTranslation()
-  const lang = i18n.language?.startsWith('ar') ? 'ar' : 'en'
+  const lang = useApiLang()
 
   return useQuery({
     queryKey: ['hero', lang],

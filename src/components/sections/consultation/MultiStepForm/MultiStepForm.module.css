@@ -25,6 +25,15 @@
   border-top: 1px solid var(--border);
 }
 
+.submitError {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, #c0392b 12%, transparent);
+  color: #c0392b;
+  font-size: 0.95rem;
+}
+
 @keyframes fade {
   from {
     opacity: 0;
