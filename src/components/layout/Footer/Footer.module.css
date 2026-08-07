@@ -5,12 +5,12 @@
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.32) 0%,
-      rgba(0, 0, 0, 0.12) 2.75rem,
+      color-mix(in srgb, var(--text) 8%, transparent) 0%,
+      color-mix(in srgb, var(--text) 3%, transparent) 2.75rem,
       transparent 6rem
     ),
-    var(--bg-band);
-  color: rgba(234, 238, 247, 0.82);
+    var(--bg-muted);
+  color: var(--text-muted);
 }
 
 .footer::before {
@@ -22,9 +22,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.35) 20%,
-    rgba(0, 0, 0, 0.45) 50%,
-    rgba(0, 0, 0, 0.35) 80%,
+    color-mix(in srgb, var(--text) 18%, transparent) 20%,
+    color-mix(in srgb, var(--text) 28%, transparent) 50%,
+    color-mix(in srgb, var(--text) 18%, transparent) 80%,
     transparent 100%
   );
   pointer-events: none;
@@ -59,7 +59,7 @@
   max-width: 36rem;
   font-size: 0.92rem;
   line-height: 1.75;
-  color: rgba(234, 238, 247, 0.68);
+  color: var(--text-muted);
 }
 
 .columns {
@@ -84,8 +84,8 @@
   font-family: var(--font-display-ar);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #f4f7fb;
-  border-bottom: 1px solid rgba(234, 238, 247, 0.18);
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
   text-align: center;
 }
 
@@ -110,7 +110,7 @@ html[lang='en'] .colTitle {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  color: rgba(234, 238, 247, 0.72);
+  color: var(--text-muted);
   font-size: 0.92rem;
   line-height: 1.5;
   text-decoration: none;
@@ -129,8 +129,8 @@ html[lang='en'] .colTitle {
   width: 1.65rem;
   height: 1.65rem;
   border-radius: 999px;
-  border: 1px solid rgba(234, 238, 247, 0.22);
-  color: rgba(234, 238, 247, 0.85);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
   font-size: 0.78rem;
 }
 
@@ -153,7 +153,7 @@ html[lang='en'] .colTitle {
 .dividerLine {
   flex: 1;
   height: 1px;
-  background: rgba(234, 238, 247, 0.16);
+  background: var(--border);
 }
 
 .diamond {
@@ -167,13 +167,13 @@ html[lang='en'] .colTitle {
 .copy {
   margin: 0;
   font-size: 0.88rem;
-  color: rgba(234, 238, 247, 0.7);
+  color: var(--text-muted);
 }
 
 .note {
   margin: 0;
   font-size: 0.8rem;
-  color: rgba(234, 238, 247, 0.5);
+  color: color-mix(in srgb, var(--text-muted) 75%, transparent);
 }
 
 @media (min-width: 768px) {
