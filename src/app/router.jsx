@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { ScrollToTop } from '@/components/ScrollToTop'
 import { MainLayout } from '@/layouts/MainLayout'
 import { LegalLayout } from '@/layouts/LegalLayout'
 import { HomePage } from '@/pages/Home/HomePage'
@@ -15,6 +16,7 @@ import { NotFoundPage } from '@/pages/NotFound/NotFoundPage'
 export function AppRouter() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route index element={<HomePage />} />

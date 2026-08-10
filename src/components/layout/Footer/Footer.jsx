@@ -6,9 +6,23 @@ import {
   HiMapPin,
   HiChatBubbleLeftRight,
 } from 'react-icons/hi2'
+import {
+  FaLinkedinIn,
+  FaXTwitter,
+  FaInstagram,
+  FaYoutube,
+} from 'react-icons/fa6'
 import { useSettings } from '@/hooks/useSettings'
 import { toTelHref, toWhatsAppHref } from '@/lib/contact'
 import styles from './Footer.module.css'
+
+const SOCIAL_ICONS = {
+  linkedin: FaLinkedinIn,
+  twitter: FaXTwitter,
+  x: FaXTwitter,
+  instagram: FaInstagram,
+  youtube: FaYoutube,
+}
 
 export function Footer() {
   const { t } = useTranslation('common')
@@ -23,6 +37,25 @@ export function Footer() {
     toWhatsAppHref(settings?.whatsapp) ?? tContact('info.whatsapp.href')
   const logoSrc = settings?.logo_url || '/assets/expavio-logo.webp'
   const brand = settings?.site_name ?? t('brand')
+
+  const fallbackLinks = tContact('social.links', { returnObjects: true })
+  const socialLinks = settings?.social_links
+    ? Object.entries(settings.social_links)
+        .filter(([, href]) => Boolean(href))
+        .map(([id, href]) => ({
+          id,
+          href,
+          label:
+            (Array.isArray(fallbackLinks)
+              ? fallbackLinks.find(
+                  (item) =>
+                    item.id === id || (id === 'twitter' && item.id === 'x'),
+                )?.label
+              : null) ?? id,
+        }))
+    : Array.isArray(fallbackLinks)
+      ? fallbackLinks
+      : []
 
   const pages = [
     { to: '/', label: t('nav.home') },
@@ -127,6 +160,30 @@ export function Footer() {
                 )
               })}
             </ul>
+
+            {socialLinks.length > 0 ? (
+              <ul
+                className={styles.social}
+                aria-label={t('footer.social')}
+              >
+                {socialLinks.map((link) => {
+                  const Icon = SOCIAL_ICONS[link.id] ?? FaLinkedinIn
+                  return (
+                    <li key={link.id}>
+                      <a
+                        href={link.href}
+                        className={styles.socialLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                      >
+                        <Icon aria-hidden="true" />
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : null}
           </div>
 
           <div className={styles.col}>
