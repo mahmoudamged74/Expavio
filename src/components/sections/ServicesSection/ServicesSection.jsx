@@ -46,7 +46,7 @@ export function ServicesSection() {
             const isActive = activeId === group.id
 
             return (
-              <Col key={group.id} xs={12} sm={6} lg={3}>
+              <Col key={group.id} xs={6} lg={3}>
                 <button
                   type="button"
                   className={`${styles.pillar} ${isActive ? styles.pillarActive : ''}`}

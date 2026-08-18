@@ -306,6 +306,47 @@ html[dir='rtl'] .serviceLink:hover .serviceArrow {
   }
 }
 
+@media (max-width: 575.98px) {
+  .pillars {
+    --bs-gutter-x: 0.7rem;
+    --bs-gutter-y: 0.7rem;
+  }
+
+  .iconWrap {
+    display: none;
+  }
+
+  .pillar {
+    min-height: 0;
+    gap: 0.4rem;
+    padding: 0.85rem 0.75rem 0.75rem;
+    border-radius: 0.95rem;
+  }
+
+  .pillarTitle {
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+
+  .pillarDesc {
+    font-size: 0.74rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pillarAction {
+    margin-top: 0.15rem;
+    font-size: 0.7rem;
+  }
+
+  .pillarIndex {
+    font-size: 0.64rem;
+  }
+}
+
 @media (min-width: 768px) {
   .serviceList {
     grid-template-columns: repeat(2, minmax(0, 1fr));

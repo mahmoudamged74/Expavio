@@ -46,7 +46,7 @@
 }
 
 .logoImg {
-  height: 2.65rem;
+  height: 3.25rem;
   width: auto;
   object-fit: contain;
 }
@@ -215,6 +215,10 @@
 }
 
 @media (min-width: 960px) {
+  .logoImg {
+    height: 3.75rem;
+  }
+
   .nav {
     display: flex;
   }
